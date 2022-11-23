@@ -1,0 +1,172 @@
+body {
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/pizza-background.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right;
+    display: flex;
+    flex-direction: column;
+}
+
+/******* HEADER *******/
+header {
+    display: flex;
+    padding: 40px;
+}
+
+header .logo-container {
+    display: flex;
+}
+
+header .logo-container .logo {
+    width: 100px;
+}
+
+/******* MAIN *******/
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+main .login-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    opacity: 80%;
+    padding: 40px;
+    border-radius: 10px;
+    background-color: var(--black-color);
+}
+
+main .login-container .welcome-text {
+    text-transform: uppercase;
+    font-size: 4rem;
+    color: var(--secondary-yellow-color);
+}
+
+main .login-container .input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+main .login-container .input-container .input-login,
+main .login-container .input-container .input-password {
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: none;
+    font-size: larger;
+}
+
+main .login-container .button-login {
+    width: fit-content;
+    padding: 1.5rem;
+    border: none;
+    border-radius: 10px;
+    background: none;
+    background-color: var(--secondary-yellow-color);
+    color: var(--white-color);
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-size: larger;
+}
+
+@media (max-width: 1024px) {
+    /******* HEADER *******/
+    header {
+        padding: 20px;
+    }
+
+    header .logo-container .logo {
+        width: 80px;
+    }
+
+    /******* MAIN *******/
+    main .login-container .welcome-text {
+        font-size: 2.5rem;
+    }
+
+    main .login-container .input-container .input-login,
+    main .login-container .input-container .input-password {
+        padding: 1.2rem;
+    }
+
+    main .login-container .button-login {
+        font-size: large;
+        padding: 1.2rem;
+    }
+}
+
+@media (max-width: 540px) {
+    /******* MAIN *******/
+    main .login-container .welcome-text {
+        font-size: 2.5rem;
+    }
+
+    main .login-container .input-container .input-login,
+    main .login-container .input-container .input-password {
+        padding: 1.2rem;
+        font-size: medium;
+    }
+
+    main .login-container .button-login {
+        font-size: large;
+        padding: 1.2rem;
+    }
+}
+
+@media (max-width: 420px) {
+    /******* HEADER *******/
+    header {
+        padding: 16px;
+    }
+
+    header .logo-container .logo {
+        width: 80px;
+    }
+
+    /******* MAIN *******/
+    main .login-container {
+        gap: 32px;
+        padding: 32px;
+    }
+
+    main .login-container .welcome-text {
+        font-size: 2rem;
+    }
+
+    main .login-container .input-container {
+        gap: 20px;
+    }
+
+    main .login-container .input-container .input-login,
+    main .login-container .input-container .input-password {
+        padding: .8rem;
+        font-size: medium;
+    }
+
+    main .login-container .button-login {
+        font-size: medium;
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 300px) {
+    main .login-container .welcome-text {
+        font-size: 1.5rem;
+    }
+
+    main .login-container .input-container .input-login,
+    main .login-container .input-container .input-password {
+        padding: .6rem;
+        font-size: medium;
+    }
+
+    main .login-container .button-login {
+        font-size: medium;
+        padding: .8rem;
+    }
+}
