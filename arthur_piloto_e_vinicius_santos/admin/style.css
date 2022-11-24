@@ -1,6 +1,6 @@
 body {
     height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/pizza-background.png);
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./assets/img/pizza-background.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: right;
@@ -19,7 +19,7 @@ header .logo-container {
 }
 
 header .logo-container .logo {
-    width: 100px;
+    width: 200px;
 }
 
 /******* MAIN *******/
@@ -81,7 +81,7 @@ main .login-container .button-login {
     }
 
     header .logo-container .logo {
-        width: 80px;
+        width: 120px;
     }
 
     /******* MAIN *******/
@@ -125,7 +125,7 @@ main .login-container .button-login {
     }
 
     header .logo-container .logo {
-        width: 80px;
+        width: 130px;
     }
 
     /******* MAIN *******/
