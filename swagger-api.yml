@@ -1,0 +1,126 @@
+openapi: 3.0.3
+info:
+  title: Lion Schools
+  description: |-
+   API for controlling Products, Users and Promotions
+  termsOfService: http://swagger.io/terms/
+  contact:
+    email: arthurpiloto.github@email.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+externalDocs:
+  description: Find out more about Swagger
+  url: http://swagger.io
+servers:
+  - url: http://
+tags:
+  - name: product
+    description: Everything about Products
+paths:
+  /v1/products:
+    get:
+      tags:
+        - product
+      summary: List of all Products
+      description: List of all products registered in the system
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Products'
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Error
+  /v1/product:
+    post:
+      tags:
+        - product
+      summary: Add a new Product to the store
+      description: Add a new Product to the store
+      responses:
+        '200':
+          description: Sucessful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductPost'
+        '400':
+          description: Empty Body
+        '210':
+          description: Caracteres excedidos
+        '211':
+          description: Required fields
+        '415':
+          description: Incorrect Content-Type
+        '500':
+          description: Internal Error
+components:
+  schemas:
+    Products:
+      required:
+        - nome
+        - preco
+        - foto
+        - status
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 10
+        nome:
+          type: string
+          example: Pizza de Mussarela
+        preco:
+          type: integer
+          format: float
+          example: 29.90
+        foto:
+          type: string
+          example: https://storage.googleapis.com/senai-pizzaria.appspot.com/1669297933575.jpeg
+        qtde_favorito:
+          type: integer
+          example: 1500
+        categoria:
+          type: string
+          example: Pizza
+        tipo:
+          type: string
+          example: Salgada
+    ProductPost:
+      required:
+        - nome
+        - preco
+        - foto
+        - status
+      type: object
+      properties:
+        nome:
+          type: string
+          example: Pizza de Mussarela
+        preco:
+          type: integer
+          format: float
+          example: 29.90
+        foto:
+          type: string
+          example: https://storage.googleapis.com/senai-pizzaria.appspot.com/1669297933575.jpeg
+        id_categoria:
+          type: integer
+          example: 3
+        id_tipo:
+          type: integer
+          example: 1
+  requestBodies:
+    Product:
+      description: Product object that needs to be added to the store
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Products'
