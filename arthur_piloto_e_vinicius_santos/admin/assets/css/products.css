@@ -41,6 +41,70 @@ header .header-text {
 }
 
 /******* MAIN *******/
+main  {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    margin-inline: 5rem;
+    padding: 3rem;
+    gap: 2.4rem;
+    background-color: var(--background-color);
+}
+
+main .filters-container {
+    display: flex;
+    gap: 2rem;
+    height: fit-content;
+}
+
+main .filters-container .filter-container {
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+}
+
+main .filters-container .filter-container .filter-title {
+    color: var(--secondary-red-color);
+    font-size: 1.6rem;
+}
+
+main .filters-container .filter-container .filter {
+    appearance: none;
+    border: .2rem solid var(--main-red-color);
+    border-radius: 1rem;
+    outline: none;
+    padding: 1rem 2rem;
+    font-size: 2rem;
+    font-weight: 500;
+    background: none;
+}
+
+main .products-container .pizzas-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+}
+
+main .products-container .pizzas-container .product-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--black-color);
+}
+
+main .products-container .pizzas-container .product-list {
+    background-color: aquamarine;    
+    overflow-x: scroll;
+    width: 100%;
+    display: flex;
+    gap: 3.2rem;
+}
+
+main .products-container .pizzas-container .product-list li .item-card {
+    background-color: tomato;
+    height: 6rem;
+    width: 6rem;
+}
+
 main .modal {
     display: none;
     position: fixed;
