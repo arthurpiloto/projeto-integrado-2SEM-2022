@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../../../assets/css/reset.css">
     <link rel="stylesheet" href="../css/products.css">
     <link rel="stylesheet" href="../../../assets/css/footer.css">
+    <script src="../js/main.js" defer type="module"></script>
     <title>Pizzaria Miamor</title>
 </head>
 <body>
@@ -15,13 +16,21 @@
             <img class="logo" src="../../../assets/img/pizza-logo.png" alt="Imagem da logo da Pizzaria Miamor">
         </a>
 
-        <a href="#" class="button-add"><img src="../img/add-button.png"></a>
+        <a href="#" class="button-add" id="open-modal"><img src="../img/add-button.png"></a>
 
         <span class="header-text">Pizzaria MiAmor</span>
     </header>
 
     <main>
-        
+        <div id="modalCms" class="modal">
+            <div class="modal-container">
+                <span class="close" id="close-modal">&times;</span>
+                <a href="#" class="button-add-modal">ADICIONAR PRODUTO</a>
+                <a href="#" class="button-add-modal">ADICIONAR USUÁRIO</a>
+                <a href="#" class="button-add-modal">ADICIONAR PROMOÇÃO</a>
+                <a href="#" class="button-add-modal">ADICIONAR CATEGORIA</a>
+            </div>
+        </div>
     </main>
 
     <footer>
