@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  title: Lion Schools
+  title: Pizzaria Miamor
   description: |-
    API for controlling Products, Users and Promotions
   termsOfService: http://swagger.io/terms/
@@ -18,13 +18,15 @@ servers:
 tags:
   - name: product
     description: Everything about Products
+  - name: type
+    description: Everything about Types
 paths:
   /v1/products:
     get:
       tags:
         - product
       summary: List of all Products
-      description: List of all products registered in the system
+      description: List of all Products
       responses:
         '200':
           description: Successful operation
@@ -38,25 +40,111 @@ paths:
           description: Not Found
         '500':
           description: Internal Error
+  /v1/product/{productID}:
+    get:
+      tags:
+        - product
+      summary: Find a Product by ID
+      description: Find a Product by ID
+      parameters:
+        - name: productID
+          in: path
+          description: ID of the Product
+          required: true
+          schema:
+            type: integer
+            format: int64
+            example: 10
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Products'
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Error
+    put:
+      tags:
+        - product
+      summary: Update an existing Product
+      description: Update an existing Product
+      parameters:
+        - name: productID
+          in: path
+          description: ID of Product to return
+          required: true
+          schema:
+            type: integer
+            format: int64
+            example: 10
+      requestBody:
+        content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Products'
+      responses:
+        '200':
+          description: Item updated successfully
+        '400':
+          description: Empty Body, Required Fields or Required ID
+        '415':
+          description: Incorrect Content-Type
+        '500':
+          description: Internal Error
+    delete:
+      tags:
+        - product
+      summary: Delete a Product
+      description: Delete a Product
+      parameters:
+        - name: productID
+          in: path
+          description: ID of Product to return
+          required: true
+          schema:
+            type: integer
+            format: int64
+            example: 10
+      responses:
+        '200':
+          description: Item deleted successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Products'
+        '400':
+          description: Required ID
+        '500':
+          description: Internal Error
   /v1/product:
     post:
       tags:
         - product
-      summary: Add a new Product to the store
-      description: Add a new Product to the store
-      responses:
-        '200':
-          description: Sucessful operation
-          content:
+      summary: Add a new Product
+      description: Add a new Product
+      requestBody:
+        description: Add a new Product
+        content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProductPost'
+        required: true
+      responses:
+        '201':
+          description: Item created successfully
         '400':
-          description: Empty Body
-        '210':
-          description: Caracteres excedidos
-        '211':
-          description: Required fields
+          description: Empty Body or Required Fields
+        '413':
+          description: Number of Characters Exceeded
         '415':
           description: Incorrect Content-Type
         '500':
@@ -68,7 +156,6 @@ components:
         - nome
         - preco
         - foto
-        - status
       type: object
       properties:
         id:
@@ -98,7 +185,6 @@ components:
         - nome
         - preco
         - foto
-        - status
       type: object
       properties:
         nome:
