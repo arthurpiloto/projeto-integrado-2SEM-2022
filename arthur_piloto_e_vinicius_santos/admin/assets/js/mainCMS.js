@@ -1,7 +1,7 @@
 'use strict'
 
 // Import dos fetch's e das funções da pasta utils 
-import { createDiv, createImg, createLi, createSpan, createOption } from "./utils/createElements.js"
+import { createDiv, createImg, createUl, createLi, createSpan, createOption } from "./utils/createElements.js"
 import { getCategories } from "./categoriesFetch.js"
 import { getProducts } from "./productsFetch.js"
 import { getTypes } from "./typesFetch.js"
@@ -48,3 +48,24 @@ const createTypesOption = () => {
     })
 }
 createTypesOption()
+
+// Criando dinamicamente os produtos
+const productsJSON = await getProducts()
+const createPizzaMenu = () => {
+    const container = document.querySelector(`.product-list`)
+    productsJSON.products.forEach(element => {
+        const li = createLi("item-container")
+        const div = createDiv("item-card")
+        const img = createImg("product-image", element.foto, element.descricao)
+        const spanName = createSpan("product-name", element.nome)
+        const spanPrice = createSpan("product-price", element.preco.toFixed(2))
+
+        div.appendChild(img)
+        div.appendChild(spanName)
+        div.appendChild(spanPrice)
+        li.appendChild(div)
+        container.appendChild(li)
+    })
+    console.log(container)
+}
+createPizzaMenu()

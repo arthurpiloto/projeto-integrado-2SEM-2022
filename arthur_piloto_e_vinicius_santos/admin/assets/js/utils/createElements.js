@@ -17,6 +17,14 @@ const createImg = (className, src, alt = "") => {
     return img
 }
 
+const createUl = (className, id = "") => {
+    const ul = document.createElement(`ul`)
+    ul.classList.add(className)
+    ul.id = id
+
+    return ul
+}
+
 const createLi = (className, id = "") => {
     const li = document.createElement(`li`)
     li.classList.add(className)
@@ -44,6 +52,7 @@ const createOption = (value, textContent) => {
 export {
     createDiv,
     createImg,
+    createUl,
     createLi,
     createSpan,
     createOption
