@@ -88,7 +88,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Products'
+                  $ref: '#/components/schemas/Product'
       responses:
         '200':
           description: Item updated successfully
@@ -115,12 +115,6 @@ paths:
       responses:
         '200':
           description: Item deleted successfully
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Products'
         '400':
           description: Required ID
         '500':
@@ -136,7 +130,129 @@ paths:
         content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ProductPost'
+                $ref: '#/components/schemas/Product'
+        required: true
+      responses:
+        '201':
+          description: Item created successfully
+        '400':
+          description: Empty Body or Required Fields
+        '413':
+          description: Number of Characters Exceeded
+        '415':
+          description: Incorrect Content-Type
+        '500':
+          description: Internal Error
+  /v1/types:
+    get:
+      tags:
+        - type
+      summary: List of all Types
+      description: List of all Types
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Types'
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Error
+  /v1/type/{typeID}:
+    get:
+      tags:
+        - type
+      summary: Find a Type by ID
+      description: Find a Type by ID
+      parameters:
+        - name: typeID
+          in: path
+          description: ID of the Product
+          required: true
+          schema:
+            type: integer
+            format: int64
+            example: 10
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Products'
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Error
+    put:
+      tags:
+        - type
+      summary: Update an existing Type
+      description: Update an existing Type
+      parameters:
+        - name: typeID
+          in: path
+          description: ID of Type to return
+          required: true
+          schema:
+            type: integer
+            format: int64
+            example: 10
+      requestBody:
+        content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Type'
+      responses:
+        '200':
+          description: Item updated successfully
+        '400':
+          description: Empty Body, Required Fields or Required ID
+        '415':
+          description: Incorrect Content-Type
+        '500':
+          description: Internal Error
+    delete:
+      tags:
+        - type
+      summary: Delete a Tyoe
+      description: Delete a Type
+      parameters:
+        - name: typeID
+          in: path
+          description: ID of Type to return
+          required: true
+          schema:
+            type: integer
+            format: int64
+            example: 10
+      responses:
+        '200':
+          description: Item deleted successfully
+        '400':
+          description: Required ID
+        '500':
+          description: Internal Error
+  /v1/type:
+    post:
+      tags:
+        - type
+      summary: Add a new Type
+      description: Add a new Type
+      requestBody:
+        description: Add a new Type
+        content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Type'
         required: true
       responses:
         '201':
@@ -180,7 +296,7 @@ components:
         tipo:
           type: string
           example: Salgada
-    ProductPost:
+    Product:
       required:
         - nome
         - preco
@@ -203,6 +319,25 @@ components:
         id_tipo:
           type: integer
           example: 1
+    Types:
+      required:
+        - tipo
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        tipo:
+          type: string
+          example: Salgada
+    Type:
+      required:
+        - tipo
+      type: object
+      properties:
+        tipo:
+          type: string
+          example: Salgada
   requestBodies:
     Product:
       description: Product object that needs to be added to the store
