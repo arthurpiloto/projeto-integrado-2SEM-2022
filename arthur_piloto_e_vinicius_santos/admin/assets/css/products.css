@@ -92,17 +92,39 @@ main .products-container .product-container .product-title {
 }
 
 main .products-container .product-container .product-list {
-    background-color: aquamarine;    
     overflow-x: scroll;
+    padding: 0 1.6rem 0 1.6rem;
     width: 100%;
     display: flex;
     gap: 3.2rem;
 }
 
+main .products-container .product-container .product-list .item-container {
+    display: flex;
+    flex-direction: column;
+    padding: .8rem;
+    border: .2rem solid var(--secondary-yellow-color);
+    border-radius: 1rem;
+}
+
 main .products-container .product-container .product-list .item-container .item-card {
-    background-color: tomato;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.6rem;
     height: 26rem;
     width: 20rem;
+}
+
+main .products-container .product-container .product-list .item-container .item-card .product-image {
+    width: 15rem;
+    height: 15rem;
+}
+
+main .products-container .product-container .product-list .item-container .item-card .product-info {
+    font-size: 2rem;
+    color: var(--main-red-color);
 }
 
 /******* MODAL *******/

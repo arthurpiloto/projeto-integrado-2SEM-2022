@@ -57,8 +57,8 @@ const createPizzaMenu = () => {
         const li = createLi("item-container")
         const div = createDiv("item-card")
         const img = createImg("product-image", element.foto, element.descricao)
-        const spanName = createSpan("product-name", element.nome)
-        const spanPrice = createSpan("product-price", element.preco.toFixed(2))
+        const spanName = createSpan("product-info", element.nome)
+        const spanPrice = createSpan("product-info", `R$${element.preco.toFixed(2)}`)
 
         div.appendChild(img)
         div.appendChild(spanName)
@@ -66,6 +66,5 @@ const createPizzaMenu = () => {
         li.appendChild(div)
         container.appendChild(li)
     })
-    console.log(container)
 }
 createPizzaMenu()
