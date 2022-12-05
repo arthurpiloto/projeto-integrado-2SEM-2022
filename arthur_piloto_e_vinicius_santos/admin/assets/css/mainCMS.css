@@ -42,6 +42,7 @@ header .header-text {
 
 /******* MAIN *******/
 main  {
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -132,7 +133,7 @@ main .modal {
     display: none;
     position: fixed;
     z-index: 999;
-    padding-top: 10%;
+    padding-top: 5%;
     left: 0;
     top: 0;
     right: 0;
@@ -152,7 +153,7 @@ main .modal .modal-container {
     background-color: var(--background-color);
     margin: auto;
     width: 30%;
-    height: 70%;
+    height: 90%;
 }
 
 main .modal .modal-container .close {
