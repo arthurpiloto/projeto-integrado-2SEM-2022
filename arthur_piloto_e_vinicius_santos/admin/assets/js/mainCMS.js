@@ -52,19 +52,22 @@ createTypesOption()
 // Criando dinamicamente os produtos
 const productsJSON = await getProducts()
 const createPizzaMenu = () => {
-    const container = document.querySelector(`.product-list`)
-    productsJSON.products.forEach(element => {
-        const li = createLi("item-container")
-        const div = createDiv("item-card")
-        const img = createImg("product-image", element.foto, element.descricao)
-        const spanName = createSpan("product-info", element.nome)
-        const spanPrice = createSpan("product-info", `R$${element.preco.toFixed(2)}`)
-
-        div.appendChild(img)
-        div.appendChild(spanName)
-        div.appendChild(spanPrice)
-        li.appendChild(div)
-        container.appendChild(li)
-    })
+    const container = document.querySelectorAll(`.product-list`)
+    for (let index = 0; index < container.length; index++) {
+        productsJSON.products.forEach(element => {
+            const li = createLi("item-container")
+            const div = createDiv("item-card")
+            const img = createImg("product-image", element.foto, element.descricao)
+            const spanName = createSpan("product-info", element.nome)
+            const spanPrice = createSpan("product-info", `R$${element.preco.toFixed(2)}`)
+    
+            div.appendChild(img)
+            div.appendChild(spanName)
+            div.appendChild(spanPrice)
+            li.appendChild(div)
+            
+            container[index].appendChild(li)
+        })
+    }
 }
 createPizzaMenu()
