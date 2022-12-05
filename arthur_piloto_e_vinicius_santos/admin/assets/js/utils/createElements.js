@@ -33,9 +33,8 @@ const createSpan = (className, textContent) => {
     return span
 }
 
-const createOption = (className, value, textContent) => {
+const createOption = (value, textContent) => {
     const option = document.createElement(`option`)
-    option.classList.add(className)
     option.value = value
     option.textContent = textContent
 
