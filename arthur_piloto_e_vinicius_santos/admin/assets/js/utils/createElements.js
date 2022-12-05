@@ -33,28 +33,19 @@ const createSpan = (className, textContent) => {
     return span
 }
 
-const createLabel = (className, forCamp, textContent) => {
-    const label = document.createElement(`label`)
-    label.classList.add(className)
-    label.htmlFor = forCamp
-    label.textContent = textContent
-
-    return label
-}
-
-const createSelect = (className, id = "", htmlName = "") => {
-    const select = document.createElement(`select`)
-    select.classList.add(className)
-    select.id = id
-    select.name = htmlName
-
-    return select
-}
-
-const createOption = (className, value) => {
+const createOption = (className, value, textContent) => {
     const option = document.createElement(`option`)
     option.classList.add(className)
     option.value = value
+    option.textContent = textContent
 
     return option
+}
+
+export {
+    createDiv,
+    createImg,
+    createLi,
+    createSpan,
+    createOption
 }

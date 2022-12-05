@@ -6,3 +6,7 @@ const getProducts = async () => {
     const productsData = await response.json()
     return productsData
 }
+
+export {
+    getProducts
+}

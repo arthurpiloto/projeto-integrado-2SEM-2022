@@ -6,3 +6,7 @@ const getTypes = async () => {
     const typesData = await response.json()
     return typesData
 }
+
+export {
+    getTypes
+}

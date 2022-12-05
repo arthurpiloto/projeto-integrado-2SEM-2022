@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/products.css">
     <link rel="stylesheet" href="../css/footer.css">
-    <script src="../js/main.js" defer type="module"></script>
+    <script src="../js/mainCMS.js" defer type="module"></script>
     <title>Pizzaria Miamor</title>
 </head>
 <body>
@@ -25,14 +25,12 @@
         <div class="filters-container">
             <div class="filter-container">
                 <label for="category" class="filter-title">Categoria:</label>
-                <select name="category" id="category" class="filter">
-                    <option value="pizza">Pizza</option>
-                </select>
+                <select name="category" id="category" class="category-filter filter"></select>
             </div>
 
             <div class="filter-container">
                 <label for="type" class="filter-title">Tipo:</label>
-                <select name="type" id="type" class="filter">
+                <select name="type" id="type" class="type-filter filter">
                     <option value="mussarela">Mussarela</option>
                 </select>
             </div>
@@ -42,6 +40,11 @@
             <div class="pizzas-container">
                 <span class="product-title">Pizzas</span>
                 <ul class="product-list">
+                    <li>
+                        <div class="item-card">
+                            <img src="" alt="">
+                        </div>
+                    </li>
                     <li>
                         <div class="item-card"></div>
                     </li>
