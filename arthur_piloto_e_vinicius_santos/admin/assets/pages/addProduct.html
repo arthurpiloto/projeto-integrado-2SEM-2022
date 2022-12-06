@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../css/addProduct.css">
     <link rel="stylesheet" href="../css/footer.css">
     <script src="../js/mainCMS.js" defer type="module"></script>
+    <script src="https://kit.fontawesome.com/2bbeedebb6.js" crossorigin="anonymous"></script>
     <title>Pizzaria Miamor</title>
 </head>
 <body>
@@ -21,11 +22,61 @@
     </header>
 
     <main>
+        <form action="" method="post">
+            <div class="left-container">
+                <div class="product-name-container info-product-container">
+                    <label for="product-name-input" class="product-title">Nome do Produto:</label>
+                    <input type="text" name="product-name" id="product-name-input" class="product-name-input">
+                </div>
 
+                <div class="product-price-photo-container">
+                    <div class="product-price-container info-product-container">
+                        <label for="product-price" class="product-title">Preço:</label>
+                        <input type="number" name="product-price" id="product-price" step="0.01" min="0" class="product-price-input">
+                    </div>
+                    
+                    <div class="product-photo-container info-product-container">
+                        <label for="product-photo" class="product-title product-photo-title">
+                            Foto:
+                            <span id="imageName"></span>
+                        </label>
+                        <div class="false-photo-input-container">
+                            <label for="product-photo" class="false-photo-input">
+                                <img src="../img/upload-image.svg">
+                            </label>
+                        </div>
+                        <input type="file" name="product-photo" id="product-photo" class="product-photo-input">
+                    </div>
+                </div>
+
+                <div class="filters-container">
+                    <div class="filter-container">
+                        <label for="category" class="filter-title">Categoria:</label>
+                        <select name="category" id="category" class="category-filter filter"></select>
+                    </div>
+        
+                    <div class="filter-container">
+                        <label for="type" class="filter-title">Tipo:</label>
+                        <select name="type" id="type" class="type-filter filter"></select>
+                    </div>
+                </div>
+            </div>
+        </form>
     </main>
 
     <footer>
         <span class="footer-text">Copyright 2022 &copy; | Arthur Piloto e Vinícius Santos</span>
     </footer>
+
+    <script>
+        let input = document.getElementById("product-photo");
+        let imageName = document.getElementById("imageName")
+
+        input.addEventListener("change", () => {
+            let inputImage = document.querySelector("input[type=file]").files[0];
+
+            imageName.innerText = inputImage.name;
+        })
+    </script>
 </body>
 </html>

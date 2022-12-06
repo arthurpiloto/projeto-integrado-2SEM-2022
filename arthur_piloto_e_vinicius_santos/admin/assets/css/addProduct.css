@@ -1,0 +1,77 @@
+/******* MAIN *******/
+main  {
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 5rem;
+    margin-inline: 5rem;
+    background-color: var(--background-color);
+}
+
+main form {
+    display: flex;
+}
+
+main form .left-container {
+    display: flex;
+    flex-direction: column;
+}
+
+main form .left-container .product-title {
+    font-size: 2.4rem;
+    font-weight: bold;
+    color: var(--secondary-yellow-color);
+}
+
+main form .left-container .info-product-container {
+    display: flex;
+    flex-direction: column;
+}
+
+main form .left-container .product-name-container .product-name-input {
+    border: none;
+    border-radius: 1rem;
+    font-size: 2rem;
+    padding: 1.6rem;
+}
+
+main form .left-container .product-name-container .product-name-input:focus,
+main form .left-container .product-price-photo-container .product-price-container  .product-price-input:focus {
+    outline: var(--main-red-color) solid .1rem;
+}
+
+main form .left-container .product-price-photo-container {
+    display: flex;
+    gap: 9rem;
+    padding: 3.2rem 0 3.2rem 0;
+}
+
+main form .left-container .product-price-photo-container .product-price-container  .product-price-input {
+    border: none;
+    border-radius: 1rem;
+    font-size: 2rem;
+    padding: 1.6rem;
+    width: 12rem;
+}
+
+main form .left-container .product-price-photo-container .product-photo-container .product-photo-title {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+}
+
+main form .left-container .product-price-photo-container .false-photo-input-container .false-photo-input {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--white-color);
+    border-radius: 1rem;
+    padding: 1.6rem;
+    width: 12rem;
+}
+
+main form .left-container .product-price-photo-container .product-photo-input {
+    display: none;
+}
