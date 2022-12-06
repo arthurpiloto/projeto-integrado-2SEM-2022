@@ -56,6 +56,7 @@ main form .left-container .product-price-photo-container .product-price-containe
 }
 
 main form .left-container .product-price-photo-container .product-photo-container .product-photo-title {
+    cursor: pointer;
     display: flex;
     align-items: center;
     gap: .8rem;
