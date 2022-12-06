@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/addProduct.css">
     <link rel="stylesheet" href="../css/footer.css">
-    <script src="../js/mainCMS.js" defer type="module"></script>
-    <script src="https://kit.fontawesome.com/2bbeedebb6.js" crossorigin="anonymous"></script>
+    <script src="../js/addProduct.js" defer type="module"></script>
     <title>Pizzaria Miamor</title>
 </head>
 <body>
@@ -60,6 +59,23 @@
                         <select name="type" id="type" class="type-filter filter"></select>
                     </div>
                 </div>
+
+                <div class="buttons-container">
+                    <button type="button" class="button-form" id="button-save-add-product">Salvar</button>
+                    <button type="button" class="button-form" id="button-exit-add-product">Sair</button>
+                </div>
+            </div>
+
+            <div class="right-container">
+                <div class="product-description-container info-product-container">
+                    <label for="product-description" class="product-title">Descrição do Produto:</label>
+                    <textarea name="product-description" id="product-description" cols="65" rows="13" class="product-description-input"></textarea>
+                </div>
+
+                <div class="product-ingredients-container info-product-container">
+                    <label for="product-ingredient" class="product-title">Ingredientes:</label>
+                    <input type="text" name="product-ingredient" id="product-ingredient" class="product-ingredient-input">
+                </div>
             </div>
         </form>
     </main>
@@ -67,16 +83,5 @@
     <footer>
         <span class="footer-text">Copyright 2022 &copy; | Arthur Piloto e Vinícius Santos</span>
     </footer>
-
-    <script>
-        let input = document.getElementById("product-photo");
-        let imageName = document.getElementById("imageName")
-
-        input.addEventListener("change", () => {
-            let inputImage = document.querySelector("input[type=file]").files[0];
-
-            imageName.innerText = inputImage.name;
-        })
-    </script>
 </body>
 </html>
