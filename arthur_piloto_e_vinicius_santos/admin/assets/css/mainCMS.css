@@ -1,26 +1,4 @@
-body {
-    height: 100vh;
-    background-color: var(--black-color);
-    display: flex;
-    flex-direction: column;
-}
-
 /******* HEADER *******/
-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between                                                                                                                                                                                                                                                                                                                                                                           ;
-    padding: 4rem;
-}
-
-header .logo-container {
-    display: flex;
-}
-
-header .logo-container .logo {
-    width: 15rem;
-}
-
 header .button-add {
     display: flex;
     align-items: center;
@@ -32,12 +10,6 @@ header .button-add {
     color: var(--white-color);
     font-size: 3rem;
     background-color: var(--secondary-yellow-color);
-}
-
-header .header-text {
-    font-size: 4rem;
-    font-weight: bold;
-    color: var(--secondary-yellow-color);
 }
 
 /******* MAIN *******/

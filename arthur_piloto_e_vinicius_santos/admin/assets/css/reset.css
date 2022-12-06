@@ -17,3 +17,10 @@
     --black-color: #221E1F;
     --white-color: #FFFFFF;
 }
+
+body {
+    height: 100vh;
+    background-color: var(--black-color);
+    display: flex;
+    flex-direction: column;
+}

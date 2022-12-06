@@ -1,0 +1,21 @@
+/******* HEADER *******/
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4rem;
+}
+
+header .logo-container {
+    display: flex;
+}
+
+header .logo-container .logo {
+    width: 15rem;
+}
+
+header .header-text {
+    font-size: 4rem;
+    font-weight: bold;
+    color: var(--secondary-yellow-color);
+}
