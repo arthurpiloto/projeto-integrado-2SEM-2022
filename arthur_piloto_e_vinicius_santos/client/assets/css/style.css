@@ -4,6 +4,7 @@ main {
     display: flex;
     flex-direction: column;
     height: 100vh;
+    background-color: var(--background-color);
 }
 
 main #home {
@@ -45,3 +46,49 @@ main #home .home-container .text-welcome-container .text-welcome .text-brown {
 }
 
 /* HOME SECTION */
+
+/********************************************************************************/
+
+/* PROMOTIONS SECTION */
+
+.title {
+    font-size: 48px;
+    font-weight: 700;
+    margin-left: 60px;
+}
+
+#promotions {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    height: fit-content;
+    padding: 15px;
+}
+
+#promotions .products-container {
+    display: flex;
+    margin-top: 25px;
+}
+
+#promotions .products-container .products-list {
+    overflow-x: scroll;
+    padding: 0 1.6rem 0 1.6rem;
+    width: 100%;
+    display: flex;
+    gap: 3.2rem;
+}
+
+#promotions .products-container ul li .card-product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.6rem;
+    height: 26rem;
+    width: 20rem;
+    padding: .8rem;
+    border: .2rem solid var(--secondary-yellow-color);
+    border-radius: 1rem;
+}
+
+/* PROMOTIONS SECTION */
