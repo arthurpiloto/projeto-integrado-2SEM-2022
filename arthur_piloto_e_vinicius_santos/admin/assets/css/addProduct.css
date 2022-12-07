@@ -2,6 +2,7 @@
 main  {
     overflow-y: auto;
     display: flex;
+    justify-content: center;
     flex-direction: column;
     flex-grow: 1;
     padding: 5rem;
@@ -9,49 +10,50 @@ main  {
     background-color: var(--background-color);
 }
 
-main form {
+main #add-product {
     display: flex;
     justify-content: space-around;
 }
 
-main form .left-container {
+main #add-product .left-container {
     display: flex;
     flex-direction: column;
 }
 
-main form .left-container .product-title,
-main form .right-container .product-title {
+main #add-product .left-container .product-title,
+main #add-product .right-container .product-title {
     font-size: 2.4rem;
     font-weight: bold;
     color: var(--secondary-yellow-color);
 }
 
-main form .left-container .info-product-container,
-main form .right-container .info-product-container {
+main #add-product .left-container .info-product-container,
+main #add-product .right-container .info-product-container {
     display: flex;
     flex-direction: column;
 }
 
-main form .left-container .product-name-container .product-name-input {
+main #add-product .left-container .product-name-container .product-name-input {
     border: none;
     border-radius: 1rem;
     font-size: 2rem;
     padding: 1.6rem;
 }
 
-main form .left-container .product-name-container .product-name-input:focus,
-main form .left-container .product-price-photo-container .product-price-container  .product-price-input:focus,
-main form .right-container .product-description-container .product-description-input:focus {
+main #add-product .left-container .product-name-container .product-name-input:focus,
+main #add-product .left-container .product-price-photo-container .product-price-container  .product-price-input:focus,
+main #add-product .right-container .product-description-container .product-description-input:focus,
+main #add-product .right-container .product-ingredients-container .product-ingredient-input:focus {
     outline: var(--main-red-color) solid .1rem;
 }
 
-main form .left-container .product-price-photo-container {
+main #add-product .left-container .product-price-photo-container {
     display: flex;
     gap: 9rem;
     padding: 3.2rem 0 3.2rem 0;
 }
 
-main form .left-container .product-price-photo-container .product-price-container  .product-price-input {
+main #add-product .left-container .product-price-photo-container .product-price-container  .product-price-input {
     border: none;
     border-radius: 1rem;
     font-size: 2rem;
@@ -59,14 +61,14 @@ main form .left-container .product-price-photo-container .product-price-containe
     width: 12rem;
 }
 
-main form .left-container .product-price-photo-container .product-photo-container .product-photo-title {
+main #add-product .left-container .product-price-photo-container .product-photo-container .product-photo-title {
     cursor: pointer;
     display: flex;
     align-items: center;
     gap: .8rem;
 }
 
-main form .left-container .product-price-photo-container .false-photo-input-container .false-photo-input {
+main #add-product .left-container .product-price-photo-container .false-photo-input-container .false-photo-input {
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -77,7 +79,7 @@ main form .left-container .product-price-photo-container .false-photo-input-cont
     width: 12rem;
 }
 
-main form .left-container .product-price-photo-container .product-photo-input {
+main #add-product .left-container .product-price-photo-container .product-photo-input {
     display: none;
 }
 
@@ -110,12 +112,12 @@ main .filters-container .filter-container .filter {
     background: none;
 }
 
-main form .left-container .buttons-container {
+main #add-product .left-container .buttons-container {
     display: flex;
     gap: 3.2rem;
 }
 
-main form .left-container .button-form {
+main #add-product .left-container .button-form {
     cursor: pointer;
     border: none;
     border-radius: 1rem;
@@ -130,17 +132,78 @@ main form .left-container .button-form {
     margin-top: 8rem;
 }
 
-main form .right-container {
+main #add-product .right-container {
     display: flex;
     flex-direction: column;
     gap: 3.2rem;
 }
 
-main form .right-container .product-description-container .product-description-input {
+main #add-product .right-container .product-description-container .product-description-input {
     border: none;
     border-radius: 1rem;
     padding: 1.6rem;
     width: 51rem;
     height: 20rem;
     resize: none;
+}
+
+main #add-product .right-container .product-ingredients-container .product-ingredient-input-container {
+    display: flex;
+    align-items: center;
+    gap: 8rem;
+}
+
+main #add-product .right-container .product-ingredients-container .product-ingredient-input-container .product-ingredient-input {
+    border: none;
+    border-radius: 1rem;
+    font-size: 2rem;
+    padding: 1.6rem;
+    width: 35rem;
+}
+
+main #add-product .right-container .product-ingredients-container .product-ingredient-input-container .product-ingredient-button {
+    cursor: pointer;
+}
+
+main #add-product .right-container .product-ingredients-container .ingredient-options-container {
+    width: 51rem;
+    display: flex;
+    gap: 1.3rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+main #add-product .right-container .product-ingredients-container .ingredient-options-container .ingredient-option {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+}
+
+main #add-product .right-container .product-ingredients-container .ingredient-options-container .ingredient-option .product-ingredient-checkbox-input {
+    appearance: none;
+    width: 1.15em;
+    height: 1.15em;
+    display: grid;
+    place-content: center;
+    border: .2rem solid var(--secondary-red-color);
+    transform: translateY(-0.075em);
+}
+
+main #add-product .right-container .product-ingredients-container .ingredient-options-container .ingredient-option .product-ingredient-checkbox-input::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(--secondary-red-color);
+}
+
+main #add-product .right-container .product-ingredients-container .ingredient-options-container .ingredient-option .product-ingredient-checkbox-input:checked::before {
+    transform: scale(1);
+}
+
+main #add-product .right-container .product-ingredients-container .ingredient-options-container .ingredient-option .product-ingredient-checkbox-label {
+    color: var(--secondary-yellow-color);
+    font-size: 1.8rem;
 }

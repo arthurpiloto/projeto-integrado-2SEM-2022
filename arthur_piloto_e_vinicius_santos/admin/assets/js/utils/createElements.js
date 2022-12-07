@@ -49,11 +49,33 @@ const createOption = (value, textContent) => {
     return option
 }
 
+const createLabel = (className, textContent, htmlFor) => {
+    const label = document.createElement(`label`)
+    label.classList.add(className)
+    label.textContent = textContent
+    label.htmlFor = htmlFor
+
+    return label
+}
+
+const createInput = (className, type, htmlName, value = htmlName, id = htmlName) => {
+    const input = document.createElement(`input`)
+    input.classList.add(className)
+    input.type = type
+    input.htmlName = htmlName
+    input.value = value
+    input.id = id
+
+    return input
+}
+
 export {
     createDiv,
     createImg,
     createUl,
     createLi,
     createSpan,
-    createOption
+    createOption,
+    createLabel,
+    createInput
 }
