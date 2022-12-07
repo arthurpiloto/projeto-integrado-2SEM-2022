@@ -4,10 +4,12 @@ header {
     display: flex;
     flex-direction: row;
     height: 100px;
+    width: 100%;
     align-items: center;
     justify-content: space-between;
     background-color: var(--background-color);
-    padding: 30px;
+    padding: 30px; 
+    position: fixed;
 }
 
 header .logo-container {
