@@ -1,9 +1,10 @@
 'use strict'
 
 // Import dos fetch's e das funções da pasta utils 
-import { createOption } from "./utils/createElements.js"
+import { createOption, createLabel, createInput, createDiv } from "./utils/createElements.js"
 import { getCategories } from "./categoriesFetch.js"
 import { getTypes } from "./typesFetch.js"
+import { getIngredients, postIngredient } from "./ingredientsFetch.js"
 
 const input = document.getElementById("product-photo")
 const imageName = document.getElementById("imageName")
@@ -35,3 +36,32 @@ const createTypesOption = () => {
     })
 }
 createTypesOption()
+
+const ingredientsJSON = await getIngredients()
+const createIngredientsList = () => {
+    const container = document.querySelector(`.ingredient-options-container`)
+    ingredientsJSON.ingredients.forEach(element => {
+        if (element.status_ingrediente == 1) {
+            const optionContainer = createDiv("ingredient-option")
+            let inputName = element.nome
+            const input = createInput("product-ingredient-checkbox-input", "checkbox", inputName, inputName, inputName)
+            const label = createLabel("product-ingredient-checkbox-label", inputName, inputName)
+            optionContainer.appendChild(input)
+            optionContainer.appendChild(label)
+            container.appendChild(optionContainer)
+        }
+    })
+}
+createIngredientsList()
+
+const ingredientButtonAdd = document.getElementById(`ingredient-button-add`)
+let jsonInfo
+ingredientButtonAdd.addEventListener(`click`, async () => {
+    const ingredientInputInfo = document.getElementById(`product-ingredient`).value
+    jsonInfo = {
+        nome: ingredientInputInfo
+    }
+    const info = await postIngredient(jsonInfo)
+    alert(info)
+    location.reload(true)
+})
