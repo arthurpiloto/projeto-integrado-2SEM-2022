@@ -1,5 +1,47 @@
-/* MAIN */
+/* HOME SECTION */
 
+main {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
 
+main #home {
+    display: flex;
+    height: 70%;
+    width: 100%;
+}
 
-/* MAIN */
+main #home .home-container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/pizza-home.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: aqua;
+
+    align-items: center;
+}
+
+main #home .home-container .text-welcome-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 750px;
+    margin-left: 65px;
+}
+
+main #home .home-container .text-welcome-container .text-welcome {
+    font-size: 96px;
+    font-weight: 700;
+    color: #FFFFFF;
+}
+
+main #home .home-container .text-welcome-container .text-welcome .text-brown {
+    font-size: 96px;
+    font-weight: 700;
+    color: var(--main-red-color);
+}
+
+/* HOME SECTION */
