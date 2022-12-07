@@ -18,8 +18,18 @@ servers:
 tags:
   - name: product
     description: Everything about Products
-  - name: type
+  - name: product-type
     description: Everything about Types
+  - name: category
+    description: Everything about Categories
+  - name: user
+    description: Everything about Users
+  - name: ingredient
+    description: Everything about Ingredients
+  - name: message
+    description: Everything about Messages
+  - name: message-type
+    description: Everything about Message Types
 paths:
   /v1/products:
     get:
@@ -143,10 +153,10 @@ paths:
           description: Incorrect Content-Type
         '500':
           description: Internal Error
-  /v1/types:
+  /v1/product-types:
     get:
       tags:
-        - type
+        - product-type
       summary: List of all Types
       description: List of all Types
       responses:
@@ -157,15 +167,15 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Types'
+                  $ref: '#/components/schemas/Product-Types'
         '404':
           description: Not Found
         '500':
           description: Internal Error
-  /v1/type/{typeID}:
+  /v1/product-type/{typeID}:
     get:
       tags:
-        - type
+        - product-type
       summary: Find a Type by ID
       description: Find a Type by ID
       parameters:
@@ -185,14 +195,14 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Products'
+                  $ref: '#/components/schemas/Product-Types'
         '404':
           description: Not Found
         '500':
           description: Internal Error
     put:
       tags:
-        - type
+        - product-type
       summary: Update an existing Type
       description: Update an existing Type
       parameters:
@@ -210,7 +220,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Type'
+                  $ref: '#/components/schemas/Product-Type'
       responses:
         '200':
           description: Item updated successfully
@@ -222,7 +232,7 @@ paths:
           description: Internal Error
     delete:
       tags:
-        - type
+        - product-type
       summary: Delete a Tyoe
       description: Delete a Type
       parameters:
@@ -241,10 +251,10 @@ paths:
           description: Required ID
         '500':
           description: Internal Error
-  /v1/type:
+  /v1/product-type:
     post:
       tags:
-        - type
+        - product-type
       summary: Add a new Type
       description: Add a new Type
       requestBody:
@@ -252,7 +262,577 @@ paths:
         content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Type'
+                $ref: '#/components/schemas/Product-Type'
+        required: true
+      responses:
+        '201':
+          description: Item created successfully
+        '400':
+          description: Empty Body or Required Fields
+        '413':
+          description: Number of Characters Exceeded
+        '415':
+          description: Incorrect Content-Type
+        '500':
+          description: Internal Error
+  /v1/categories:
+    get:
+      tags:
+        - category
+      summary: List of all Categories
+      description: List of all Categories
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Categories'
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Error
+  /v1/category/{categoryID}:
+    get:
+      tags:
+        - category
+      summary: Find a Category by ID
+      description: Find a Category by ID
+      parameters:
+        - name: categoryID
+          in: path
+          description: ID of the Category
+          required: true
+          schema:
+            type: integer
+            format: int64
+            example: 10
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Categories'
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Error
+    put:
+      tags:
+        - category
+      summary: Update an existing Category
+      description: Update an existing Category
+      parameters:
+        - name: categoryID
+          in: path
+          description: ID of Category to return
+          required: true
+          schema:
+            type: integer
+            format: int64
+            example: 10
+      requestBody:
+        content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Category'
+      responses:
+        '200':
+          description: Item updated successfully
+        '400':
+          description: Empty Body, Required Fields or Required ID
+        '415':
+          description: Incorrect Content-Type
+        '500':
+          description: Internal Error
+    delete:
+      tags:
+        - category
+      summary: Delete a Category
+      description: Delete a Category
+      parameters:
+        - name: categoryID
+          in: path
+          description: ID of Category to return
+          required: true
+          schema:
+            type: integer
+            format: int64
+            example: 10
+      responses:
+        '200':
+          description: Item deleted successfully
+        '400':
+          description: Required ID
+        '500':
+          description: Internal Error
+  /v1/category:
+    post:
+      tags:
+        - category
+      summary: Add a new Category
+      description: Add a new Category
+      requestBody:
+        description: Add a new Category
+        content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+        required: true
+      responses:
+        '201':
+          description: Item created successfully
+        '400':
+          description: Empty Body or Required Fields
+        '413':
+          description: Number of Characters Exceeded
+        '415':
+          description: Incorrect Content-Type
+        '500':
+          description: Internal Error
+  /v1/users:
+    get:
+      tags:
+        - user
+      summary: List of all Users
+      description: List of all Users
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Users'
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Error
+  /v1/user/{userID}:
+    get:
+      tags:
+        - user
+      summary: Find a User by ID
+      description: Find a User by ID
+      parameters:
+        - name: userID
+          in: path
+          description: ID of the User
+          required: true
+          schema:
+            type: integer
+            format: int64
+            example: 10
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Users'
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Error
+    put:
+      tags:
+        - user
+      summary: Update an existing User
+      description: Update an existing User
+      parameters:
+        - name: userID
+          in: path
+          description: ID of User to return
+          required: true
+          schema:
+            type: integer
+            format: int64
+            example: 10
+      requestBody:
+        content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+      responses:
+        '200':
+          description: Item updated successfully
+        '400':
+          description: Empty Body, Required Fields or Required ID
+        '415':
+          description: Incorrect Content-Type
+        '500':
+          description: Internal Error
+    delete:
+      tags:
+        - user
+      summary: Delete a User
+      description: Delete a User
+      parameters:
+        - name: userID
+          in: path
+          description: ID of User to return
+          required: true
+          schema:
+            type: integer
+            format: int64
+            example: 10
+      responses:
+        '200':
+          description: Item deleted successfully
+        '400':
+          description: Required ID
+        '500':
+          description: Internal Error
+  /v1/user:
+    post:
+      tags:
+        - user
+      summary: Add a new User
+      description: Add a new User
+      requestBody:
+        description: Add a new User
+        content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        required: true
+      responses:
+        '201':
+          description: Item created successfully
+        '400':
+          description: Empty Body or Required Fields
+        '413':
+          description: Number of Characters Exceeded
+        '415':
+          description: Incorrect Content-Type
+        '500':
+          description: Internal Error
+  /v1/ingredients:
+    get:
+      tags:
+        - ingredient
+      summary: List of all Ingredients
+      description: List of all Ingredients
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Ingredients'
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Error
+  /v1/ingredient/{ingredientID}:
+    get:
+      tags:
+        - ingredient
+      summary: Find a Ingredient by ID
+      description: Find a Ingredient by ID
+      parameters:
+        - name: ingredientID
+          in: path
+          description: ID of the Ingredient
+          required: true
+          schema:
+            type: integer
+            format: int64
+            example: 10
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Ingredients'
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Error
+    put:
+      tags:
+        - ingredient
+      summary: Update an existing Ingredient
+      description: Update an existing Ingredient
+      parameters:
+        - name: ingredientID
+          in: path
+          description: ID of Ingredient to return
+          required: true
+          schema:
+            type: integer
+            format: int64
+            example: 10
+      requestBody:
+        content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Ingredient'
+      responses:
+        '200':
+          description: Item updated successfully
+        '400':
+          description: Empty Body, Required Fields or Required ID
+        '415':
+          description: Incorrect Content-Type
+        '500':
+          description: Internal Error
+  /v1/ingredient/delete/{ingredientID}:
+    put:
+      tags:
+        - ingredient
+      summary: Disable an existing Ingredient
+      description: Disable an existing Ingredient
+      parameters:
+        - name: ingredientID
+          in: path
+          description: ID of Ingredient to return
+          required: true
+          schema:
+            type: integer
+            format: int64
+            example: 10
+      requestBody:
+        content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Ingredient'
+      responses:
+        '200':
+          description: Item deleted successfully
+        '400':
+          description: Required ID
+        '500':
+          description: Internal Error
+  /v1/ingredient/rehabilitate/{ingredientID}:
+    put:
+      tags:
+        - ingredient
+      summary: Rehabilitate an existing Ingredient
+      description: Rehabilitate an existing Ingredient
+      parameters:
+        - name: ingredientID
+          in: path
+          description: ID of Ingredient to return
+          required: true
+          schema:
+            type: integer
+            format: int64
+            example: 10
+      requestBody:
+        content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Ingredient'
+      responses:
+        '200':
+          description: Item updated successfully
+        '400':
+          description: Empty Body, Required Fields or Required ID
+        '415':
+          description: Incorrect Content-Type
+        '500':
+          description: Internal Error
+  /v1/ingredient:
+    post:
+      tags:
+        - ingredient
+      summary: Add a new Ingredient
+      description: Add a new Ingredient
+      requestBody:
+        description: Add a new Ingredient
+        content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ingredient'
+        required: true
+      responses:
+        '201':
+          description: Item created successfully
+        '400':
+          description: Empty Body or Required Fields
+        '413':
+          description: Number of Characters Exceeded
+        '415':
+          description: Incorrect Content-Type
+        '500':
+          description: Internal Error
+  /v1/messages:
+    get:
+      tags:
+        - message
+      summary: List of all Messages
+      description: List of all Messages
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Messages'
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Error
+  /v1/message:
+    post:
+      tags:
+        - message
+      summary: Add a new Message
+      description: Add a new Message
+      requestBody:
+        description: Add a new Message
+        content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+        required: true
+      responses:
+        '201':
+          description: Item created successfully
+        '400':
+          description: Empty Body or Required Fields
+        '413':
+          description: Number of Characters Exceeded
+        '415':
+          description: Incorrect Content-Type
+        '500':
+          description: Internal Error
+  /v1/message-types:
+    get:
+      tags:
+        - message-type
+      summary: List of all Message Types
+      description: List of all Message Types
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Message-Types'
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Error
+  /v1/message-type/{messageTypeID}:
+    get:
+      tags:
+        - message-type
+      summary: Find a Message Type by ID
+      description: Find a Message Type by ID
+      parameters:
+        - name: messageTypeID
+          in: path
+          description: ID of the Message Type
+          required: true
+          schema:
+            type: integer
+            format: int64
+            example: 10
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Message-Types'
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Error
+    put:
+      tags:
+        - message-type
+      summary: Update an existing Message Type
+      description: Update an existing Message Type
+      parameters:
+        - name: messageTypeID
+          in: path
+          description: ID of Message Type to return
+          required: true
+          schema:
+            type: integer
+            format: int64
+            example: 10
+      requestBody:
+        content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Message-Type'
+      responses:
+        '200':
+          description: Item updated successfully
+        '400':
+          description: Empty Body, Required Fields or Required ID
+        '415':
+          description: Incorrect Content-Type
+        '500':
+          description: Internal Error
+    delete:
+      tags:
+        - user
+      summary: Delete a User
+      description: Delete a User
+      parameters:
+        - name: messageTypeID
+          in: path
+          description: ID of User to return
+          required: true
+          schema:
+            type: integer
+            format: int64
+            example: 10
+      responses:
+        '200':
+          description: Item deleted successfully
+        '400':
+          description: Required ID
+        '500':
+          description: Internal Error
+  /v1/message-type:
+    post:
+      tags:
+        - message-type
+      summary: Add a new Message Type
+      description: Add a new Message Type
+      requestBody:
+        description: Add a new Message Type
+        content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message-Type'
         required: true
       responses:
         '201':
@@ -319,7 +899,7 @@ components:
         id_tipo:
           type: integer
           example: 1
-    Types:
+    Product-Types:
       required:
         - tipo
       type: object
@@ -330,7 +910,7 @@ components:
         tipo:
           type: string
           example: Salgada
-    Type:
+    Product-Type:
       required:
         - tipo
       type: object
@@ -338,10 +918,216 @@ components:
         tipo:
           type: string
           example: Salgada
+    Categories:
+      required:
+        - nome
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 3
+        nome:
+          type: string
+          example: Salgada
+    Category:
+      required:
+        - nome
+      type: object
+      properties:
+        nome:
+          type: string
+          example: Salgada
+    Users:
+      required:
+        - nome
+        - email
+        - senha
+        - cpf
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 9
+        nome:
+          type: string
+          example: Vinícius Santos Oliveira
+        email:
+          type: string
+          example: vini@gmail.com
+        senha:
+          type: string
+          example: 999
+        celular:
+          type: string
+          example: 99 9 9999-9999
+        rg:
+          type: string
+          example: 99.999.999-9
+        cpf:
+          type: string
+          example: 999.999.999-99
+    User:
+      required:
+        - nome
+        - email
+        - senha
+        - cpf
+      type: object
+      properties:
+        nome:
+          type: string
+          example: Vinícius Santos Oliveira
+        email:
+          type: string
+          example: vini@gmail.com
+        senha:
+          type: string
+          example: 999
+        celular:
+          type: string
+          example: 99 9 9999-9999
+        rg:
+          type: string
+          example: 99.999.999-9
+        cpf:
+          type: string
+          example: 999.999.999-99
+    Ingredients:
+      required:
+        - nome
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 10
+        nome:
+          type: string
+          example: Salada
+        status_ingrediente:
+          type: boolean
+          example: true
+    Ingredient:
+      required:
+        - nome
+        - status_ingrediente
+      type: object
+      properties:
+        nome:
+          type: string
+          example: Salada
+        status_ingrediente:
+          type: boolean
+          example: false
+    Messages:
+      required:
+        - nome_cliente
+        - email
+        - data_envio
+        - mensagem
+        - tipo
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 6
+        nome_cliente:
+          type: string
+          example: Arthur Piloto
+        email:
+          type: string
+          example: arthur@gmail.com
+        data_envio:
+          type: string
+          example: 06/12/2022
+        mensagem:
+          type: string
+          example: Ótimo atendimento!
+        tipo:
+          type: string
+          example: Crítica
+    Message:
+      required:
+        - nome_cliente
+        - email
+        - data_envio
+        - mensagem
+        - tipo
+      type: object
+      properties:
+        nome_cliente:
+          type: string
+          example: Arthur Piloto
+        email:
+          type: string
+          example: arthur@gmail.com
+        data_envio:
+          type: string
+          example: 06/12/2022
+        mensagem:
+          type: string
+          example: Ótimo atendimento!
+        tipo:
+          type: string
+          example: Crítica
+    Message-Types:
+      required:
+        - nome
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 3
+        nome_cliente:
+          type: string
+          example: Sugestão
+    Message-Type:
+      required:
+        - nome
+      type: object
+      properties:
+        nome_cliente:
+          type: string
+          example: Sugestão
   requestBodies:
     Product:
-      description: Product object that needs to be added to the store
+      description: Product object that needs to be added to the system
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Products'
+            $ref: '#/components/schemas/Product'
+    Product-Type:
+      description: Product-Type object that needs to be added to the store
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Product-Type'
+    Category:
+      description: Category object that needs to be added to the system
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Category'
+    User:
+      description: User object that needs to be added to the system
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/User'
+    Ingredient:
+      description: Ingredient object that needs to be added to the system
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Ingredient'
+    Message:
+      description: Message object that needs to be added to the system
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Message'
+    Message-Type:
+      description: Message-Type object that needs to be added to the system
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Message-Type'
