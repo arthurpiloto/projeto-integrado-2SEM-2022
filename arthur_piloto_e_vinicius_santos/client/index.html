@@ -4,12 +4,100 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/header.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <title>Pizzaria Miamor</title>
 </head>
 <body>
+    <header>
+        <div class="logo-container">
+            <img class="logo-pizzeria" src="./assets/img/pizza-logo.png" alt="Logo da Pizzaria">
+        </div>
+
+        <nav>
+            <ul class="options-menu">
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+
+                <li>
+                    <a href="#promotions">Promoções</a>
+                </li>
+
+                <li>
+                    <a href="#favorites">Favoritos</a>
+                </li>
+
+                <li>
+                    <a href="#menu">Cardápio</a>
+                </li>
+
+                <li>   
+                    <a href="#services">Serviços</a>
+                </li>
+
+                <li>
+                    <a href="#contact">Contato</a>
+                </li>
+
+            </ul>
+        </nav>
+
+        <nav>
+            <ul class="buttons-sign-up">
+                <li>
+                    <span class="sign-in">Sign In</span>
+                </li>
+
+                <li>
+                    <span class="sign-up">Sign Up</span>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
     <main>
-        <h1>PÁGINA PRINCIPAL</h1>
+        <section id="home">
+            <div class="home-container">
+                <div class="text-welcome-container">
+                    <span class="text-welcome">
+                        Bem-vindo à <span class="text-brown">Pizzaria MiAmor</span>
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <section id="promotions">
+            <span class="title">PROMOÇÕES</span>
+
+            <div class="products-container">
+                <ul class="products-list">
+                    <li>
+                        <div class="card-product">
+                            <img src="./assets/img/pizza-card.png" alt="Imagem da Pizza">
+                            <span class="pizza-name">Pizza de Calabresa</span>
+                            <span class="pizza-price">R$20,00</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="favorites"></section>
+
+        <section id="menu"></section>
+
+        <section id="services"></section>
+
+        <section id="contact"></section>
     </main>
+
+    <!-- <footer>
+        <span class="footer-text">Copyright 2022 &copy; | Arthur Piloto e Vinícius Santos</span>
+    </footer> -->
 </body>
 </html>

@@ -1,0 +1,94 @@
+/* HOME SECTION */
+
+main {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: var(--background-color);
+}
+
+main #home {
+    display: flex;
+    height: 70%;
+    width: 100%;
+}
+
+main #home .home-container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/pizza-home.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: aqua;
+
+    align-items: center;
+}
+
+main #home .home-container .text-welcome-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 750px;
+    margin-left: 65px;
+}
+
+main #home .home-container .text-welcome-container .text-welcome {
+    font-size: 96px;
+    font-weight: 700;
+    color: #FFFFFF;
+}
+
+main #home .home-container .text-welcome-container .text-welcome .text-brown {
+    font-size: 96px;
+    font-weight: 700;
+    color: var(--main-red-color);
+}
+
+/* HOME SECTION */
+
+/********************************************************************************/
+
+/* PROMOTIONS SECTION */
+
+.title {
+    font-size: 48px;
+    font-weight: 700;
+    margin-left: 60px;
+}
+
+#promotions {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    height: fit-content;
+    padding: 15px;
+}
+
+#promotions .products-container {
+    display: flex;
+    margin-top: 25px;
+}
+
+#promotions .products-container .products-list {
+    overflow-x: scroll;
+    padding: 0 1.6rem 0 1.6rem;
+    width: 100%;
+    display: flex;
+    gap: 3.2rem;
+}
+
+#promotions .products-container ul li .card-product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.6rem;
+    height: 26rem;
+    width: 20rem;
+    padding: .8rem;
+    border: .2rem solid var(--secondary-yellow-color);
+    border-radius: 1rem;
+}
+
+/* PROMOTIONS SECTION */
