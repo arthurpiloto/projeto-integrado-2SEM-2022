@@ -17,3 +17,14 @@
     --black-color: #221E1F;
     --white-color: #FFFFFF;
 }
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+ul, a, li {
+    list-style: none;
+    text-decoration: none;
+}

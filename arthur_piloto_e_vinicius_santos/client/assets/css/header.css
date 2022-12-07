@@ -1,0 +1,58 @@
+/* HEADER  */
+
+header {
+    display: flex;
+    flex-direction: row;
+    height: 100px;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--background-color);
+    padding: 30px;
+}
+
+header .logo-container {
+    display: flex;
+}
+
+header .logo-container .logo-pizzeria {
+    width: 12.5rem
+}
+
+header nav .options-menu {
+    display: flex;
+    gap: 45px;
+}
+
+header nav ul li a {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2rem;
+    font-weight: 400;
+    color: #000000;
+    transition: 400ms;
+}
+
+header nav ul li a:hover {
+    color: var(--main-red-color);
+    font-weight: 700;
+}
+
+header nav .buttons-sign-up {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+header nav .buttons-sign-up li span {
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+}
+
+header nav .buttons-sign-up li .sign-up {
+    display: flex;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: var(--secondary-red-color);
+}
+
+/* HEADER  */
