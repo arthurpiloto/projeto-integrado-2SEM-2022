@@ -5,6 +5,7 @@ import { createDiv, createImg, createUl, createLi, createSpan, createOption } fr
 import { getCategories } from "./fetch's/categoriesFetch.js"
 import { getProducts } from "./fetch's/productsFetch.js"
 import { getTypes } from "./fetch's/typesFetch.js"
+import { getUsers } from "./fetch's/usersFetch.js";
 
 // Configuração do Modal
 var modal = document.getElementById("modalCms")
@@ -51,7 +52,7 @@ createTypesOption()
 
 // Criando dinamicamente os produtos
 const productsJSON = await getProducts()
-const createPizzaMenu = () => {
+const createProductsList = () => {
     const container = document.querySelectorAll(`.product-list`)
     for (let index = 0; index < container.length; index++) {
         productsJSON.products.forEach(element => {
@@ -70,4 +71,23 @@ const createPizzaMenu = () => {
         })
     }
 }
-createPizzaMenu()
+createProductsList()
+
+const usersJSON = await getUsers()
+const createUsersList = () => {
+    const container = document.querySelector(`.users-list`)
+    usersJSON.users.forEach(element => {
+        const li = createLi("item-container")
+        const div = createDiv("item-card")
+        const img = createImg("user-image", "https://icons.veryicon.com/png/o/internet--web/55-common-web-icons/person-4.png")
+        const spanName = createSpan("user-info", element.nome)
+        const spanEmail = createSpan("user-info", element.email)
+
+        div.appendChild(img)
+        div.appendChild(spanName)
+        div.appendChild(spanEmail)
+        li.appendChild(div)
+        container.appendChild(li)
+    })
+}
+createUsersList()
