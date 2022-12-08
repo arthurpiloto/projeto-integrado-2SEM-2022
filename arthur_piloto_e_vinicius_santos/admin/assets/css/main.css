@@ -1,0 +1,10 @@
+main  {
+    overflow-y: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 5rem;
+    margin-inline: 5rem;
+    background-color: var(--background-color);
+}
