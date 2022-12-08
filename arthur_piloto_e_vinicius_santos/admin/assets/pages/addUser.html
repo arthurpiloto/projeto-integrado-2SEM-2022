@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/addUser.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <script src="../js/addUser.js" defer type="module"></script>
+    <title>Pizzaria Miamor</title>
+</head>
+<body>
+    <header>
+        <a class="logo-container" href="./mainCMS.html">
+            <img class="logo" src="../img/pizza-logo.png" alt="Imagem da logo da Pizzaria Miamor">
+        </a>
+
+        <span class="header-text">Pizzaria Miamor</span>
+    </header>
+    
+    <main>
+        <div class="form-container">
+            <div class="inputs-container">
+                <div class="input-container">
+                    <label for="user-name" class="user-title">Nome do Usuário:</label>
+                    <input type="text" name="user-name" id="user-name" class="user-input">
+                </div>
+
+                <div class="input-container">
+                    <label for="user-password" class="user-title">Senha do Usuário:</label>
+                    <input type="password" name="user-password" id="user-password" class="user-input">
+                </div>
+
+                <div class="input-container">
+                    <label for="user-rg" class="user-title">RG do Usuário:</label>
+                    <input type="text" name="user-rg" id="user-rg" class="user-input">
+                </div>
+
+                <div class="input-container">
+                    <label for="user-cpf" class="user-title">CPF do Usuário:</label>
+                    <input type="text" name="user-cpf" id="user-cpf" class="user-input">
+                </div>
+
+                <div class="input-container">
+                    <label for="user-phone" class="user-title">Telefone do Usuário:</label>
+                    <input type="tel" name="user-phone" id="user-phone" class="user-input">
+                </div>
+
+                <div class="input-container">
+                    <label for="user-name" class="user-title">Email do Usuário:</label>
+                    <input type="email" name="user-email" id="user-email" class="user-input">
+                </div>
+            </div>
+
+            <div class="buttons-container">
+                <button type="button" class="button-form" id="button-save-add-user">Salvar</button>
+                <button type="button" class="button-form" id="button-exit-add-user">Sair</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <span class="footer-text">Copyright 2022 &copy; | Arthur Piloto e Vinícius Santos</span>
+    </footer>
+</body>
+</html>
