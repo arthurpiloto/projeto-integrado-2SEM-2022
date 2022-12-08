@@ -802,13 +802,13 @@ paths:
           description: Internal Error
     delete:
       tags:
-        - user
-      summary: Delete a User
-      description: Delete a User
+        - message-type
+      summary: Delete a Message Type
+      description: Delete a Message Type
       parameters:
         - name: messageTypeID
           in: path
-          description: ID of User to return
+          description: ID of Message Type to return
           required: true
           schema:
             type: integer
