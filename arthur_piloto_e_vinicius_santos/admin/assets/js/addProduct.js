@@ -61,7 +61,6 @@ ingredientButtonAdd.addEventListener(`click`, async () => {
     jsonInfo = {
         nome: ingredientInputInfo
     }
-    const info = await postIngredient(jsonInfo)
-    alert(info)
+    await postIngredient(jsonInfo)
     location.reload(true)
 })

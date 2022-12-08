@@ -16,7 +16,7 @@ const postIngredient = async (json) => {
         },
         body: JSON.stringify(json)
     })
-    const ingredientData = await response.status()
+    const ingredientData = await response.json()
     return ingredientData
 }
 
