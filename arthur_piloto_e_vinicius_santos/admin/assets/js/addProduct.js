@@ -55,12 +55,22 @@ const createIngredientsList = () => {
 createIngredientsList()
 
 const ingredientButtonAdd = document.getElementById(`ingredient-button-add`)
-let jsonInfo
+let jsonInfoIngredient
 ingredientButtonAdd.addEventListener(`click`, async () => {
     const ingredientInputInfo = document.getElementById(`product-ingredient`).value
-    jsonInfo = {
+    jsonInfoIngredient = {
         nome: ingredientInputInfo
     }
-    await postIngredient(jsonInfo)
+    await postIngredient(jsonInfoIngredient)
     location.reload(true)
+})
+
+const productButtonAdd = document.getElementById('button-save-add-product')
+const productButtonExit = document.getElementById('button-exit-add-product')
+let jsonInfoProduct
+productButtonAdd.addEventListener('click', async () => {
+    const productName = document.getElementById('product-name').value
+    const productPrice = document.getElementById('product-price').value
+    // const productPhoto = document.getElementById('product-photo').value
+    
 })

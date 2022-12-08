@@ -21,11 +21,11 @@
     </header>
 
     <main>
-        <form id="add-product" method="post">
+        <div id="add-product" method="post">
             <div class="left-container">
                 <div class="product-name-container info-product-container">
-                    <label for="product-name-input" class="product-title">Nome do Produto:</label>
-                    <input type="text" name="product-name" id="product-name-input" class="product-name-input">
+                    <label for="product-name" class="product-title">Nome do Produto:</label>
+                    <input type="text" name="product-name" id="product-name" class="product-name-input">
                 </div>
 
                 <div class="product-price-photo-container">
@@ -51,12 +51,12 @@
                 <div class="filters-container">
                     <div class="filter-container">
                         <label for="category" class="filter-title">Categoria:</label>
-                        <select name="category" id="category" class="category-filter filter"></select>
+                        <select name="category" id="product-category" class="category-filter filter"></select>
                     </div>
         
                     <div class="filter-container">
                         <label for="type" class="filter-title">Tipo:</label>
-                        <select name="type" id="type" class="type-filter filter"></select>
+                        <select name="type" id="product-type" class="type-filter filter"></select>
                     </div>
                 </div>
 
@@ -82,7 +82,7 @@
                     <div class="ingredient-options-container"></div>
                 </div>
             </div>
-        </form>
+        </div>
     </main>
 
     <footer>
