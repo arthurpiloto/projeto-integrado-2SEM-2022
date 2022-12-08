@@ -86,7 +86,7 @@ main .infos-container .product-container .product-list .item-container .item-car
     align-items: center;
     justify-content: center;
     gap: 1.6rem;
-    height: 26rem;
+    padding: 1.6rem;
     width: 20rem;
 }
 
@@ -135,7 +135,6 @@ main .infos-container .users-container .users-list .item-container .item-card {
     align-items: center;
     justify-content: center;
     gap: 1.6rem;
-    height: 26rem;
     width: 20rem;
 }
 
@@ -144,7 +143,12 @@ main .infos-container .users-container .users-list .item-container .item-card .u
     height: 15rem;
 }
 
-main .infos-container .users-container .users-list .item-container .item-card .user-info {
+main .infos-container .users-container .users-list .item-container .item-card .user-info-container {
+    display: flex;
+    flex-direction: column;
+}
+
+main .infos-container .users-container .users-list .item-container .item-card .user-info-container .user-info {
     font-size: 2rem;
     color: var(--main-red-color);
 }
