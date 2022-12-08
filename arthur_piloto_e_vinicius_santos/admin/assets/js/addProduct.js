@@ -2,9 +2,9 @@
 
 // Import dos fetch's e das funções da pasta utils 
 import { createOption, createLabel, createInput, createDiv } from "./utils/createElements.js"
-import { getCategories } from "./categoriesFetch.js"
-import { getTypes } from "./typesFetch.js"
-import { getIngredients, postIngredient } from "./ingredientsFetch.js"
+import { getCategories } from "./fetch's/categoriesFetch.js"
+import { getTypes } from "./fetch's/typesFetch.js"
+import { getIngredients, postIngredient } from "./fetch's/ingredientsFetch.js"
 
 const input = document.getElementById("product-photo")
 const imageName = document.getElementById("imageName")
@@ -66,11 +66,15 @@ ingredientButtonAdd.addEventListener(`click`, async () => {
 })
 
 const productButtonAdd = document.getElementById('button-save-add-product')
-const productButtonExit = document.getElementById('button-exit-add-product')
 let jsonInfoProduct
 productButtonAdd.addEventListener('click', async () => {
     const productName = document.getElementById('product-name').value
     const productPrice = document.getElementById('product-price').value
     // const productPhoto = document.getElementById('product-photo').value
     
+})
+
+const productButtonExit = document.getElementById('button-exit-add-product')
+productButtonExit.addEventListener('click', () => {
+    history.back()
 })

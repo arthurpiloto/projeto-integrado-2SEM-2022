@@ -2,9 +2,9 @@
 
 // Import dos fetch's e das funções da pasta utils 
 import { createDiv, createImg, createUl, createLi, createSpan, createOption } from "./utils/createElements.js"
-import { getCategories } from "./categoriesFetch.js"
-import { getProducts } from "./productsFetch.js"
-import { getTypes } from "./typesFetch.js"
+import { getCategories } from "./fetch's/categoriesFetch.js"
+import { getProducts } from "./fetch's/productsFetch.js"
+import { getTypes } from "./fetch's/typesFetch.js"
 
 // Configuração do Modal
 var modal = document.getElementById("modalCms")
