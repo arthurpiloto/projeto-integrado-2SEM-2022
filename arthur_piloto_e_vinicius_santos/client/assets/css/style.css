@@ -249,3 +249,35 @@ main #home .home-container .text-welcome-container .text-welcome .text-brown {
 }
 
 /*************************/
+
+/* SERVICES SECTION */
+
+#services {
+    margin-top: 50px;
+    height: fit-content;
+    padding: 15px;
+}
+
+#services .services-container {
+    margin-top: 45px;
+    display: flex;
+    justify-content: space-around;
+}
+
+#services .services-container .service {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 45px;
+    border-radius: 10px;
+    background-color: var(--secondary-red-color);
+}
+
+#services .services-container .service .service-name {
+    font-size: 40px;
+    font-weight: 700;
+}
+
+/* SERVICES SECTION */
