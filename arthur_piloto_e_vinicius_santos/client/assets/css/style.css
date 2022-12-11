@@ -235,3 +235,17 @@ main #home .home-container .text-welcome-container .text-welcome .text-brown {
 }
 
 /* MENU SECTION */
+
+/*************************/
+
+.main-image {
+    display: flex;
+    height: 600px;
+    width: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/pizza-footer.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/*************************/
