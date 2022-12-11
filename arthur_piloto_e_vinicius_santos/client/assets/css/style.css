@@ -291,8 +291,44 @@ main #home .home-container .text-welcome-container .text-welcome .text-brown {
 
 /* CONTACTS SECTION */
 
-#contacts {
+#contact {
     display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    height: fit-content;
+    padding: 15px;
+}
+
+#contact .subtitle {
+    font-size: 36px;
+    font-weight: 700;
+    margin-left: 60px;
+    margin-bottom: 15px;
+    color: var(--secondary-red-color);
+}
+
+#contact .contact-container {
+    display: flex;
+    margin-left: 60px;
+}
+
+#contact .contact-container .social-media-container {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    gap: 35px 0px;
+}
+
+.text-contact {
+    font-size: 24px;
+    font-weight: 400;
+}
+
+#contact .contact-container .social-media-container .location, .phone, .whatsapp, .instagram, .facebook, .twitter {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0px 25px;
 }
 
 /* CONTACTS SECTION */
