@@ -131,11 +131,11 @@ main #home .home-container .text-welcome-container .text-welcome .text-brown {
     border-radius: 1rem;
 }
 
-/* PROMOTIONS SECTION */
+/* FAVORITES SECTION */
 
 /********************************************************************************/
 
-/* FAVORITES SECTION */
+/* MENU SECTION */
 
 #menu {
     margin-top: 50px;
@@ -200,4 +200,38 @@ main #home .home-container .text-welcome-container .text-welcome .text-brown {
     font-size: 1.5rem;
 }
 
-/* FAVORITES SECTION */
+#menu .products-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+}
+
+#menu .products-container .subtitle {
+    font-size: 20px;
+    font-weight: 700;
+    margin-left: 60px;
+    margin-bottom: 15px;
+}
+
+#menu .products-container .products-list {
+    overflow-x: scroll;
+    padding: 0 1.6rem 0 1.6rem;
+    width: 100%;
+    display: flex;
+    gap: 3.2rem;
+}
+
+#menu .products-container ul li .card-product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.6rem;
+    height: 26rem;
+    width: 20rem;
+    padding: .8rem;
+    border: .2rem solid var(--secondary-yellow-color);
+    border-radius: 1rem;
+}
+
+/* MENU SECTION */
