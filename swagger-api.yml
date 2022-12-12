@@ -30,6 +30,8 @@ tags:
     description: Everything about Messages
   - name: message-type
     description: Everything about Message Types
+  - name: promotion
+    description: Everything about Message Promotions
 paths:
   /v1/products:
     get:
@@ -50,21 +52,20 @@ paths:
           description: Not Found
         '500':
           description: Internal Error
-  /v1/product/{productID}:
+  /v1/products/category/{productCategory}:
     get:
       tags:
         - product
-      summary: Find a Product by ID
-      description: Find a Product by ID
+      summary: List of all Products with that Category
+      description: List of all Products with that Category
       parameters:
-        - name: productID
+        - name: productCategory
           in: path
-          description: ID of the Product
+          description: Name of the Product Category
           required: true
           schema:
-            type: integer
-            format: int64
-            example: 10
+            type: string
+            example: Pizza
       responses:
         '200':
           description: Successful operation
@@ -78,6 +79,61 @@ paths:
           description: Not Found
         '500':
           description: Internal Error
+  /v1/products/type/{productType}:
+    get:
+      tags:
+        - product
+      summary: List of all Products with that Type
+      description: List of all Products with that Type
+      parameters:
+        - name: productType
+          in: path
+          description: Name of the Product Type
+          required: true
+          schema:
+            type: string
+            example: Salgada
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Products'
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Error
+  /v1/product/{productID}:
+#    get:
+#      tags:
+#        - product
+#      summary: Find a Product by ID
+#      description: Find a Product by ID
+#      parameters:
+#        - name: productID
+#          in: path
+#          description: ID of the Product
+#          required: true
+#          schema:
+#            type: integer
+#            format: int64
+#            example: 10
+#      responses:
+#        '200':
+#          description: Successful operation
+#          content:
+#            application/json:
+#              schema:
+#                type: array
+#                items:
+#                  $ref: '#/components/schemas/Products'
+#        '404':
+#          description: Not Found
+#        '500':
+#          description: Internal Error
     put:
       tags:
         - product
@@ -172,21 +228,20 @@ paths:
           description: Not Found
         '500':
           description: Internal Error
-  /v1/product-type/{typeID}:
+  /v1/product-type/{productTypeName}:
     get:
       tags:
         - product-type
-      summary: Find a Type by ID
-      description: Find a Type by ID
+      summary: Get the ID of that Type name
+      description: Get the ID of that Type name
       parameters:
-        - name: typeID
+        - name: productTypeName
           in: path
-          description: ID of the Product
+          description: Name of the Product Type
           required: true
           schema:
-            type: integer
-            format: int64
-            example: 10
+            type: string
+            example: Salgada
       responses:
         '200':
           description: Successful operation
@@ -195,11 +250,39 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Product-Types'
+                  $ref: '#/components/schemas/Product-Type-ID'
         '404':
           description: Not Found
         '500':
           description: Internal Error
+  /v1/product-type/{typeID}:
+#    get:
+#      tags:
+#        - product-type
+#      summary: Find a Type by ID
+#      description: Find a Type by ID
+#      parameters:
+#        - name: typeID
+#          in: path
+#          description: ID of the Product
+#          required: true
+#          schema:
+#            type: integer
+#            format: int64
+#            example: 10
+#      responses:
+#        '200':
+#          description: Successful operation
+#          content:
+#            application/json:
+#              schema:
+#                type: array
+#                items:
+#                  $ref: '#/components/schemas/Product-Types'
+#        '404':
+#          description: Not Found
+#        '500':
+#          description: Internal Error
     put:
       tags:
         - product-type
@@ -294,21 +377,20 @@ paths:
           description: Not Found
         '500':
           description: Internal Error
-  /v1/category/{categoryID}:
+  /v1/category/{categoryName}:
     get:
       tags:
         - category
-      summary: Find a Category by ID
-      description: Find a Category by ID
+      summary: Get the ID of that Category name
+      description: Get the ID of that Category name
       parameters:
-        - name: categoryID
+        - name: categoryName
           in: path
-          description: ID of the Category
+          description: Name of the Category
           required: true
           schema:
-            type: integer
-            format: int64
-            example: 10
+            type: string
+            example: Pizza
       responses:
         '200':
           description: Successful operation
@@ -322,6 +404,34 @@ paths:
           description: Not Found
         '500':
           description: Internal Error
+  /v1/category/{categoryID}:
+#    get:
+#      tags:
+#        - category
+#      summary: Find a Category by ID
+#      description: Find a Category by ID
+#      parameters:
+#        - name: categoryID
+#          in: path
+#          description: ID of the Category
+#          required: true
+#          schema:
+#            type: integer
+#            format: int64
+#            example: 10
+#      responses:
+#        '200':
+#          description: Successful operation
+#          content:
+#            application/json:
+#              schema:
+#                type: array
+#                items:
+#                  $ref: '#/components/schemas/Categories'
+#        '404':
+#          description: Not Found
+#        '500':
+#          description: Internal Error
     put:
       tags:
         - category
@@ -417,33 +527,33 @@ paths:
         '500':
           description: Internal Error
   /v1/user/{userID}:
-    get:
-      tags:
-        - user
-      summary: Find a User by ID
-      description: Find a User by ID
-      parameters:
-        - name: userID
-          in: path
-          description: ID of the User
-          required: true
-          schema:
-            type: integer
-            format: int64
-            example: 10
-      responses:
-        '200':
-          description: Successful operation
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Users'
-        '404':
-          description: Not Found
-        '500':
-          description: Internal Error
+#    get:
+#      tags:
+#        - user
+#      summary: Find a User by ID
+#      description: Find a User by ID
+#      parameters:
+#        - name: userID
+#          in: path
+#          description: ID of the User
+#          required: true
+#          schema:
+#            type: integer
+#            format: int64
+#            example: 10
+#      responses:
+#        '200':
+#          description: Successful operation
+#          content:
+#            application/json:
+#              schema:
+#                type: array
+#                items:
+#                  $ref: '#/components/schemas/Users'
+#        '404':
+#          description: Not Found
+#        '500':
+#          description: Internal Error
     put:
       tags:
         - user
@@ -539,33 +649,33 @@ paths:
         '500':
           description: Internal Error
   /v1/ingredient/{ingredientID}:
-    get:
-      tags:
-        - ingredient
-      summary: Find a Ingredient by ID
-      description: Find a Ingredient by ID
-      parameters:
-        - name: ingredientID
-          in: path
-          description: ID of the Ingredient
-          required: true
-          schema:
-            type: integer
-            format: int64
-            example: 10
-      responses:
-        '200':
-          description: Successful operation
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Ingredients'
-        '404':
-          description: Not Found
-        '500':
-          description: Internal Error
+#    get:
+#      tags:
+#        - ingredient
+#      summary: Find a Ingredient by ID
+#      description: Find a Ingredient by ID
+#      parameters:
+#        - name: ingredientID
+#          in: path
+#          description: ID of the Ingredient
+#          required: true
+#          schema:
+#            type: integer
+#            format: int64
+#            example: 10
+#      responses:
+#        '200':
+#          description: Successful operation
+#          content:
+#            application/json:
+#              schema:
+#                type: array
+#                items:
+#                  $ref: '#/components/schemas/Ingredients'
+#        '404':
+#          description: Not Found
+#        '500':
+#          description: Internal Error
     put:
       tags:
         - ingredient
@@ -743,33 +853,33 @@ paths:
         '500':
           description: Internal Error
   /v1/message-type/{messageTypeID}:
-    get:
-      tags:
-        - message-type
-      summary: Find a Message Type by ID
-      description: Find a Message Type by ID
-      parameters:
-        - name: messageTypeID
-          in: path
-          description: ID of the Message Type
-          required: true
-          schema:
-            type: integer
-            format: int64
-            example: 10
-      responses:
-        '200':
-          description: Successful operation
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Message-Types'
-        '404':
-          description: Not Found
-        '500':
-          description: Internal Error
+#    get:
+#      tags:
+#        - message-type
+#      summary: Find a Message Type by ID
+#      description: Find a Message Type by ID
+#      parameters:
+#        - name: messageTypeID
+#          in: path
+#          description: ID of the Message Type
+#          required: true
+#          schema:
+#            type: integer
+#            format: int64
+#            example: 10
+#      responses:
+#        '200':
+#          description: Successful operation
+#          content:
+#            application/json:
+#              schema:
+#                type: array
+#                items:
+#                  $ref: '#/components/schemas/Message-Types'
+#        '404':
+#          description: Not Found
+#        '500':
+#          description: Internal Error
     put:
       tags:
         - message-type
@@ -833,6 +943,128 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Message-Type'
+        required: true
+      responses:
+        '201':
+          description: Item created successfully
+        '400':
+          description: Empty Body or Required Fields
+        '413':
+          description: Number of Characters Exceeded
+        '415':
+          description: Incorrect Content-Type
+        '500':
+          description: Internal Error
+  /v1/promotions:
+    get:
+      tags:
+        - promotion
+      summary: List of all Products
+      description: List of all Products
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Promotions'
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Error
+  /v1/message-type/{promotionID}:
+#    get:
+#      tags:
+#        - promotion
+#      summary: Find a Promotion by ID
+#      description: Find a Promotion by ID
+#      parameters:
+#        - name: promotionID
+#          in: path
+#          description: ID of the Promotion
+#          required: true
+#          schema:
+#            type: integer
+#            format: int64
+#            example: 10
+#      responses:
+#        '200':
+#          description: Successful operation
+#          content:
+#            application/json:
+#              schema:
+#                type: array
+#                items:
+#                  $ref: '#/components/schemas/Promotions'
+#        '404':
+#          description: Not Found
+#        '500':
+#          description: Internal Error
+    put:
+      tags:
+        - promotion
+      summary: Update an existing Promotion
+      description: Update an existing Promotion
+      parameters:
+        - name: promotionID
+          in: path
+          description: ID of Promotion to return
+          required: true
+          schema:
+            type: integer
+            format: int64
+            example: 10
+      requestBody:
+        content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Promotion'
+      responses:
+        '200':
+          description: Item updated successfully
+        '400':
+          description: Empty Body, Required Fields or Required ID
+        '415':
+          description: Incorrect Content-Type
+        '500':
+          description: Internal Error
+    delete:
+      tags:
+        - promotion
+      summary: Delete a Promotion
+      description: Delete a Promotion
+      parameters:
+        - name: promotionID
+          in: path
+          description: ID of Promotion to return
+          required: true
+          schema:
+            type: integer
+            format: int64
+            example: 10
+      responses:
+        '200':
+          description: Item deleted successfully
+        '400':
+          description: Required ID
+        '500':
+          description: Internal Error
+  /v1/promotion:
+    post:
+      tags:
+        - promotion
+      summary: Add a new Promotion
+      description: Add a new Promotion
+      requestBody:
+        description: Add a new Promotion
+        content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Promotion'
         required: true
       responses:
         '201':
@@ -918,6 +1150,12 @@ components:
         tipo:
           type: string
           example: Salgada
+    Product-Type-ID:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 10
     Categories:
       required:
         - nome
@@ -928,7 +1166,7 @@ components:
           example: 3
         nome:
           type: string
-          example: Salgada
+          example: Pizza
     Category:
       required:
         - nome
@@ -936,7 +1174,7 @@ components:
       properties:
         nome:
           type: string
-          example: Salgada
+          example: Pizza
     Users:
       required:
         - nome
@@ -1088,6 +1326,59 @@ components:
         nome_cliente:
           type: string
           example: Sugestão
+    Promotions:
+      required:
+        - nome
+        - porcentagem_desconto
+        - data_inicio
+        - data_termino
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 10
+        nome:
+          type: string
+          example: Promoção de Pizza de Mussarela
+        porcentagem_desconto:
+          type: integer
+          format: float
+          example: 50%
+        preco_final:
+          type: integer
+          format: double
+          example: 10.90
+        data_inicio:
+          type: string
+          example: 10/12/2022
+        data_termino:
+          type: string
+          example: 12/12/2022
+    Promotion:
+      required:
+        - nome
+        - porcentagem_desconto
+        - data_inicio
+        - data_termino
+      type: object
+      properties:
+        nome:
+          type: string
+          example: Promoção de Pizza de Mussarela
+        porcentagem_desconto:
+          type: integer
+          format: float
+          example: 50%
+        preco_final:
+          type: integer
+          format: double
+          example: 10.90
+        data_inicio:
+          type: string
+          example: 10/12/2022
+        data_termino:
+          type: string
+          example: 12/12/2022
   requestBodies:
     Product:
       description: Product object that needs to be added to the system
