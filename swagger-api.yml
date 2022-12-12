@@ -1099,6 +1099,9 @@ components:
         foto:
           type: string
           example: https://storage.googleapis.com/senai-pizzaria.appspot.com/1669297933575.jpeg
+        descricao:
+          type: string
+          example: Pizza gostosa feita ao ponto com incríveis sabores
         qtde_favorito:
           type: integer
           example: 1500
@@ -1113,6 +1116,7 @@ components:
         - nome
         - preco
         - foto
+        - status
       type: object
       properties:
         nome:
@@ -1131,6 +1135,12 @@ components:
         id_tipo:
           type: integer
           example: 1
+        status:
+          type: boolean
+          example: true
+        descricao:
+          type: string
+          example: Pizza de Mussarela feita ao ponto
     Product-Types:
       required:
         - tipo

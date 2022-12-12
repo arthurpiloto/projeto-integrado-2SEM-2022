@@ -7,6 +7,14 @@ const getProducts = async () => {
     return productsData
 }
 
+const getProductsByCategoryName = async (productCategory) => {
+    const url = `http://localhost:3030/v1/products/category/${productCategory}`
+    const response = await fetch(url)
+    const productsData = await response.json()
+    return productsData
+}
+
 export {
-    getProducts
+    getProducts,
+    getProductsByCategoryName
 }

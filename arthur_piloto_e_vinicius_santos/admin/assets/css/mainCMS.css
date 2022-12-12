@@ -19,6 +19,7 @@ main  {
     flex-direction: column;
     flex-grow: 1;
     margin-inline: 5rem;
+    padding-bottom: 5rem;
     gap: 2.4rem;
     background-color: var(--background-color);
 }
