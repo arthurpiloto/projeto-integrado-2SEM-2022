@@ -3,11 +3,12 @@ footer {
     align-items: center;
     justify-content: center;
     padding: 40px;
+    background-color: var(--background-color);
 }
 
 footer .footer-text {
     font-size: 1.6rem;
-    color: var(--white-color);
+    color: var(--black-color);
 }
 
 @media (max-width: 1024px) {
