@@ -101,6 +101,10 @@ main .filters-container .filter-container .filter {
     background: none;
 }
 
+main .filters-container .filter-container .type-filter {
+    width: fit-content;
+}
+
 main #add-product .left-container .buttons-container {
     display: flex;
     gap: 3.2rem;

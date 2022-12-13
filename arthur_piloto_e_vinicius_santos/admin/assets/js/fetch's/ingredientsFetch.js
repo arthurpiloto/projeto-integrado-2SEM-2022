@@ -7,6 +7,13 @@ const getIngredients = async () => {
     return ingredientsData
 }
 
+const getIngredientIDByName = async (ingredientName) => {
+    const url = `http://localhost:3030/v1/ingredient/${ingredientName}`
+    const response = await fetch(url)
+    const ingredientsData = await response.json()
+    return ingredientsData
+}
+
 const postIngredient = async (json) => {
     const url = `http://localhost:3030/v1/ingredient`
     const response = await fetch(url, {
@@ -35,5 +42,6 @@ const postIngredient = async (json) => {
 
 export {
     getIngredients,
-    postIngredient
+    postIngredient,
+    getIngredientIDByName
 }

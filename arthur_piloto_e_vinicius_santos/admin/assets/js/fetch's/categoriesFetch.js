@@ -7,6 +7,14 @@ const getCategories = async () => {
     return categoriesData
 }
 
+const getCategoryIDByName = async (categoryName) => {
+    const url = `http://localhost:3030/v1/category/${categoryName}`
+    const response = await fetch(url)
+    const categoriesData = await response.json()
+    return categoriesData
+}
+
 export {
-    getCategories
+    getCategories,
+    getCategoryIDByName
 }
