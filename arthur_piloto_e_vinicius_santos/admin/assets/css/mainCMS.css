@@ -98,6 +98,7 @@ main .infos-container .product-container .product-list .item-container .item-car
 
 main .infos-container .product-container .product-list .item-container .item-card .product-info {
     font-size: 2rem;
+    text-align: center;
     color: var(--main-red-color);
 }
 

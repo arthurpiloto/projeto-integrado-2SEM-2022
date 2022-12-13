@@ -57,23 +57,29 @@ createTypesOption()
 const createProductsList = async () => {
     const container = document.getElementById(`menu-container`)
 
-    categoriesJSON.categories.forEach(element => {
+    categoriesJSON.categories.forEach(async element => {
         const divContainer = createDiv(`product-container`)
         const spanTitle = createSpan(`product-title`, element.nome)
         const ul = createUl(`product-list`)
-        const li = createLi("item-container")
-        const infoDiv = createDiv("item-card")
-        const img = createImg("product-image", element.foto, element.descricao)
-        const spanName = createSpan("product-info", element.nome_produto)
-        const spanPrice = createSpan("product-info", `R$${element.preco.toFixed(2)}`)
 
-        infoDiv.appendChild(img)
-        infoDiv.appendChild(spanName)
-        infoDiv.appendChild(spanPrice)
-        li.appendChild(infoDiv)
-        ul.appendChild(li)
-        divContainer.appendChild(spanTitle)
-        divContainer.appendChild(ul)
+        const categoryJSON = await getProductsByCategoryName(element.nome)
+        console.log(categoryJSON)
+        categoryJSON.products.forEach(element => {
+            const li = createLi("item-container")
+            const infoDiv = createDiv("item-card")
+            const img = createImg("product-image", element.foto, element.descricao)
+            const spanName = createSpan("product-info", element.nome_produto)
+            const spanPrice = createSpan("product-info", `R$${element.preco.toFixed(2)}`)
+
+            infoDiv.appendChild(img)
+            infoDiv.appendChild(spanName)
+            infoDiv.appendChild(spanPrice)
+            li.appendChild(infoDiv)
+            ul.appendChild(li)
+            divContainer.appendChild(spanTitle)
+            divContainer.appendChild(ul)
+            container.appendChild(divContainer)
+        })
     })
 }
 createProductsList()
