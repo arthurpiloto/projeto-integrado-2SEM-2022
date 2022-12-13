@@ -137,6 +137,7 @@ main .infos-container .users-container .users-list .item-container .item-card {
     align-items: center;
     justify-content: center;
     gap: 1.6rem;
+    padding: 1.6rem;
     width: 20rem;
 }
 
