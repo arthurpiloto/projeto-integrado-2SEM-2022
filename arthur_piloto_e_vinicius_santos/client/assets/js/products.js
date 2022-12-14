@@ -61,3 +61,51 @@ const createProductsList = async () => {
     })
 }
 createProductsList()
+
+const clearProductsCards = () => {
+    const cards = document.querySelectorAll('.product-container')
+    cards.forEach((card) => card.remove())
+}
+
+// Criando dinamicamente os produtos de acordo com o filtro de categoria
+const createProductsByCategoryName = () => {
+    const select = document.querySelector('.select-category')
+    select.addEventListener('change', async () => {
+        const selectValue = document.querySelector('.select-category').value
+        const productsByCategory = await getProductsByCategoryName(selectValue)
+
+        if(selectValue != 'Todos') {
+            clearProductsCards()
+    
+            
+            const divContainer = createDiv(`product-container`)
+            const spanTitle = createSpan(`subtitle`, selectValue)
+            const ul = createUl(`products-list`)
+            
+            productsByCategory.products.forEach(async element => {
+                const container = document.querySelector(`.products-container`)
+    
+                
+                const li = createLi("item-container")
+                const infoDiv = createDiv("card-product")
+                const img = createImg("product-image", element.foto, element.descricao)
+                const spanName = createSpan("product-name", element.nome_produto)
+                const spanPrice = createSpan("product-price", `R$${element.preco.toFixed(2)}`)
+    
+                infoDiv.appendChild(img)
+                infoDiv.appendChild(spanName)
+                infoDiv.appendChild(spanPrice)
+                li.appendChild(infoDiv)
+                ul.appendChild(li)
+                divContainer.appendChild(spanTitle)
+                divContainer.appendChild(ul)
+                container.appendChild(divContainer)
+            })
+        } else {
+            clearProductsCards()
+            createProductsList()
+        }
+
+    })
+}
+createProductsByCategoryName()
