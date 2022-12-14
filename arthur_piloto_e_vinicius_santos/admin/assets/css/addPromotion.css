@@ -1,0 +1,74 @@
+/******* MAIN *******/
+main {
+    flex-direction: row;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+main .products-list-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8rem;
+}
+
+main .products-list-container .product-list-title {
+    font-size: 2.4rem;
+    font-weight: bold;
+    color: var(--secondary-yellow-color);
+}
+
+main .products-list-container .product-list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 55rem;
+    gap: 3rem;
+    overflow-x: scroll;
+    align-items: center;
+    justify-content: center;
+}
+
+main .products-list-container .product-list .product {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .8rem;
+    padding: .8rem;
+    width: fit-content;
+}
+
+main .products-list-container .product-list .product .product-name {
+    color: var(--secondary-yellow-color);
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+main .products-list-container .product-list .product .product-radio {
+    appearance: none;
+    width: 1.15em;
+    height: 1.15em;
+    display: grid;
+    place-content: center;
+    border: .1rem solid var(--secondary-red-color);
+    transform: translateY(-0.075em);
+}
+
+main .products-list-container .product-list .product .product-radio::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(--secondary-red-color);
+}
+
+main .products-list-container .product-list .product .product-radio:checked::before {
+    transform: scale(1);
+}
+
+main .info-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
