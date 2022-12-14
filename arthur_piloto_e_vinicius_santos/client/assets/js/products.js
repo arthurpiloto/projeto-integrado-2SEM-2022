@@ -5,34 +5,13 @@ import { createDiv, createImg, createUl, createLi, createSpan, createOption } fr
 import { getCategories } from "./fetch's/categoriesFetch.js"
 import { getProductsByCategoryName } from "./fetch's/productsFetch.js"
 import { getTypes } from "./fetch's/typesFetch.js"
-import { getUsers } from "./fetch's/usersFetch.js";
 
 const categoriesJSON = await getCategories()
 const typesJSON = await getTypes()
-const usersJSON = await getUsers()
-
-// Configuração do Modal
-const modal = document.getElementById("modalCms")
-const buttonOpenModal = document.getElementById("open-modal")
-const buttonCloseModal = document.getElementById("close-modal")
-
-buttonOpenModal.onclick = () => {
-    modal.style.display = "block"
-}
-
-buttonCloseModal.onclick = () => {
-    modal.style.display = "none"
-}
-
-window.onclick = (event) => {
-    if (event.target == modal) {
-        modal.style.display = "none"
-    }
-}
 
 // Criando dinamicamete as opções que aparecem no select de categoria
 const createCategoriesOption = () => {
-    const container = document.querySelector('.category-filter')
+    const container = document.querySelector('.select-category')
     categoriesJSON.categories.forEach(element => {
         const optionName = element.nome
         const option = createOption(optionName, optionName)
@@ -43,7 +22,7 @@ createCategoriesOption()
 
 // Criando dinamicamete as opções que aparecem no select de tipo
 const createTypesOption = () => {
-    const container = document.querySelector(`.type-filter`)
+    const container = document.querySelector(`.select-type`)
     typesJSON.types.forEach(element => {
         const optionTipo = element.tipo
         const option = createOption(optionTipo, optionTipo)
@@ -54,21 +33,21 @@ createTypesOption()
 
 // Criando dinamicamente os produtos
 const createProductsList = async () => {
-    const container = document.getElementById(`menu-container`)
+    const container = document.querySelector(`.products-container`)
 
     categoriesJSON.categories.forEach(async element => {
         const divContainer = createDiv(`product-container`)
-        const spanTitle = createSpan(`product-title`, element.nome)
-        const ul = createUl(`product-list`)
+        const spanTitle = createSpan(`subtitle`, element.nome)
+        const ul = createUl(`products-list`)
 
         const categoryJSON = await getProductsByCategoryName(element.nome)
 
         categoryJSON.products.forEach(element => {
             const li = createLi("item-container")
-            const infoDiv = createDiv("item-card")
+            const infoDiv = createDiv("card-product")
             const img = createImg("product-image", element.foto, element.descricao)
-            const spanName = createSpan("product-info", element.nome_produto)
-            const spanPrice = createSpan("product-info", `R$${element.preco.toFixed(2)}`)
+            const spanName = createSpan("product-name", element.nome_produto)
+            const spanPrice = createSpan("product-price", `R$${element.preco.toFixed(2)}`)
 
             infoDiv.appendChild(img)
             infoDiv.appendChild(spanName)
@@ -83,27 +62,6 @@ const createProductsList = async () => {
 }
 createProductsList()
 
-// Criando dinamicamente os usuários
-const createUsersList = () => {
-    const container = document.querySelector(`.users-list`)
-    usersJSON.users.forEach(element => {
-        const li = createLi("item-container")
-        const div = createDiv("item-card")
-        const img = createImg("user-image", "https://icons.veryicon.com/png/o/internet--web/55-common-web-icons/person-4.png")
-        const infoDiv = createDiv("user-info-container")
-        const spanName = createSpan("user-info", element.nome)
-        const spanEmail = createSpan("user-info", element.email)
-
-        infoDiv.appendChild(spanName)
-        infoDiv.appendChild(spanEmail)
-        div.appendChild(img)
-        div.appendChild(infoDiv)
-        li.appendChild(div)
-        container.appendChild(li)
-    })
-}
-createUsersList()
-
 const clearProductsCards = () => {
     const cards = document.querySelectorAll('.product-container')
     cards.forEach((card) => card.remove())
@@ -111,9 +69,9 @@ const clearProductsCards = () => {
 
 // Criando dinamicamente os produtos de acordo com o filtro de categoria
 const createProductsByCategoryName = () => {
-    const select = document.querySelector('.category-filter')
+    const select = document.querySelector('.select-category')
     select.addEventListener('change', async () => {
-        const selectValue = document.querySelector('.category-filter').value
+        const selectValue = document.querySelector('.select-category').value
         const productsByCategory = await getProductsByCategoryName(selectValue)
 
         if(selectValue != 'Todos') {
@@ -121,18 +79,18 @@ const createProductsByCategoryName = () => {
     
             
             const divContainer = createDiv(`product-container`)
-            const spanTitle = createSpan(`product-title`, selectValue)
-            const ul = createUl(`product-list`)
+            const spanTitle = createSpan(`subtitle`, selectValue)
+            const ul = createUl(`products-list`)
             
             productsByCategory.products.forEach(async element => {
-                const container = document.getElementById(`menu-container`)
+                const container = document.querySelector(`.products-container`)
     
                 
                 const li = createLi("item-container")
-                const infoDiv = createDiv("item-card")
+                const infoDiv = createDiv("card-product")
                 const img = createImg("product-image", element.foto, element.descricao)
-                const spanName = createSpan("product-info", element.nome_produto)
-                const spanPrice = createSpan("product-info", `R$${element.preco.toFixed(2)}`)
+                const spanName = createSpan("product-name", element.nome_produto)
+                const spanPrice = createSpan("product-price", `R$${element.preco.toFixed(2)}`)
     
                 infoDiv.appendChild(img)
                 infoDiv.appendChild(spanName)
