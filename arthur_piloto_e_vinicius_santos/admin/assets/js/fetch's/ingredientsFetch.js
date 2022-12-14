@@ -8,7 +8,7 @@ const getIngredients = async () => {
 }
 
 const getIngredientIDByName = async (ingredientName) => {
-    const url = `http://localhost:3030/v1/ingredient/${ingredientName}`
+    const url = `http://localhost:3030/v1/ingredient-id/${ingredientName}`
     const response = await fetch(url)
     const ingredientsData = await response.json()
     return ingredientsData

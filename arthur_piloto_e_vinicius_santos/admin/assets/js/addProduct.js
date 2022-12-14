@@ -5,6 +5,10 @@ import { createOption, createLabel, createInput, createDiv } from "./utils/creat
 import { getCategories, getCategoryIDByName } from "./fetch's/categoriesFetch.js"
 import { getTypes, getTypeIDByName } from "./fetch's/typesFetch.js"
 import { getIngredients, getIngredientIDByName, postIngredient } from "./fetch's/ingredientsFetch.js"
+import { postProduct } from "./fetch's/productsFetch.js";
+import { uploadImage } from "./firebase.js"
+
+// alert(`Favor inserir o Ingrediente primeiro`)
 
 const input = document.getElementById("product-photo")
 const imageName = document.getElementById("imageName")
@@ -73,34 +77,53 @@ let jsonInfoProduct
 productButtonAdd.addEventListener('click', async () => {
     const productName = document.getElementById('product-name').value
     const productPrice = document.getElementById('product-price').value
-    // const productPhoto = document.getElementById('product-photo').value
+    const productPhoto = document.getElementById('product-photo').files[0]
+    const nameFile = document.getElementById('product-photo').files[0].name
+    const urlImage =  await uploadImage(productPhoto, nameFile)
     const productCategory = await getCategoryIDByName(document.getElementById(`product-category`).value)
     const productType = await getTypeIDByName(document.getElementById(`product-type`).value)
     const productDescription = document.getElementById(`product-description`).value
     const productIngredientsCheckBoxes = document.querySelectorAll(`.product-ingredient-checkbox-input:checked`)
 
-    let checkedItems = []
-    productIngredientsCheckBoxes.forEach(element => {
-        checkedItems.push(element.value)
-    })
+    // let checkedItems = []
+    // productIngredientsCheckBoxes.forEach(element => {
+    //     checkedItems.push(element.value)
+    // })
 
-    const productIngredients = []
-    checkedItems.forEach(async element => {
-        let ingredientJSON = {}
-        const data = await getIngredientIDByName(element)
-        ingredientJSON.id_ingrediente = data[0].id
-        productIngredients.push(ingredientJSON)
-    })
+    // const productIngredients = []
+    // checkedItems.forEach(async element => {
+    //     let ingredientJSON = {}
+    //     const data = await getIngredientIDByName(element)
+    //     ingredientJSON.id_ingrediente = data[0].id
+    //     productIngredients.push(ingredientJSON)
+    // })
     
+    let id_promocao = [
+        {
+            id_promocao: 0
+        }
+    ]
+
+    let productIngredients = [
+        {
+            id_ingrediente: 38
+        }
+    ]
+
     jsonInfoProduct = {
         nome: productName,
         preco: productPrice,
-        // foto: "https://storage.googleapis.com/senai-pizzaria.appspot.com/1669297933575.jpeg",
+        foto: urlImage,
         id_categoria: productCategory[0].id,
-        id_tipo: productType[0].id,
+        id_tipo_produto: productType[0].id,
         descricao: productDescription,
-        ingrediente: productIngredients
+        ingrediente: productIngredients,
+        promocao: id_promocao
     }
+
+    const uploadProduct = await postProduct(jsonInfoProduct)
+    console.log(uploadProduct)
+
 })
 
 const productButtonExit = document.getElementById('button-exit-add-product')

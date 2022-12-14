@@ -14,7 +14,21 @@ const getProductsByCategoryName = async (productCategory) => {
     return productsData
 }
 
+const postProduct = async (json) => {
+    const url = `http://localhost:3030/v1/product`
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-type' : 'application/json'
+        },
+        body: JSON.stringify(json)
+    })
+    const productData = await response.json()
+    return productData
+}
+
 export {
     getProducts,
-    getProductsByCategoryName
+    getProductsByCategoryName,
+    postProduct
 }
