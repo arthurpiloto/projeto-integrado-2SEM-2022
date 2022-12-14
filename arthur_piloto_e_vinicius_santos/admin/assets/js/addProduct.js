@@ -8,7 +8,7 @@ import { getIngredients, getIngredientIDByName, postIngredient } from "./fetch's
 import { postProduct } from "./fetch's/productsFetch.js";
 import { uploadImage } from "./firebase.js"
 
-// alert(`Favor inserir o Ingrediente primeiro`)
+alert(`Favor inserir o Ingrediente primeiro`)
 
 const input = document.getElementById("product-photo")
 const imageName = document.getElementById("imageName")
@@ -85,28 +85,21 @@ productButtonAdd.addEventListener('click', async () => {
     const productDescription = document.getElementById(`product-description`).value
     const productIngredientsCheckBoxes = document.querySelectorAll(`.product-ingredient-checkbox-input:checked`)
 
-    // let checkedItems = []
-    // productIngredientsCheckBoxes.forEach(element => {
-    //     checkedItems.push(element.value)
-    // })
+    let checkedItems = []
+    productIngredientsCheckBoxes.forEach(element => {
+        checkedItems.push(element.value)
+    })
 
-    // const productIngredients = []
-    // checkedItems.forEach(async element => {
-    //     let ingredientJSON = {}
-    //     const data = await getIngredientIDByName(element)
-    //     ingredientJSON.id_ingrediente = data[0].id
-    //     productIngredients.push(ingredientJSON)
-    // })
-    
+    const productIngredients = await Promise.all(checkedItems.map(async element => {
+        let ingredientJSON = {}
+        const data = await getIngredientIDByName(element)
+        ingredientJSON.id_ingrediente = data[0].id
+        return ingredientJSON
+    }))
+
     let id_promocao = [
         {
             id_promocao: 0
-        }
-    ]
-
-    let productIngredients = [
-        {
-            id_ingrediente: 38
         }
     ]
 
@@ -122,8 +115,7 @@ productButtonAdd.addEventListener('click', async () => {
     }
 
     const uploadProduct = await postProduct(jsonInfoProduct)
-    console.log(uploadProduct)
-
+    alert(uploadProduct)
 })
 
 const productButtonExit = document.getElementById('button-exit-add-product')
