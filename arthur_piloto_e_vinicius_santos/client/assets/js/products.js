@@ -30,3 +30,34 @@ const createTypesOption = () => {
     })
 }
 createTypesOption()
+
+// Criando dinamicamente os produtos
+const createProductsList = async () => {
+    const container = document.querySelector(`.products-container`)
+
+    categoriesJSON.categories.forEach(async element => {
+        const divContainer = createDiv(`product-container`)
+        const spanTitle = createSpan(`subtitle`, element.nome)
+        const ul = createUl(`products-list`)
+
+        const categoryJSON = await getProductsByCategoryName(element.nome)
+
+        categoryJSON.products.forEach(element => {
+            const li = createLi("item-container")
+            const infoDiv = createDiv("card-product")
+            const img = createImg("product-image", element.foto, element.descricao)
+            const spanName = createSpan("product-name", element.nome_produto)
+            const spanPrice = createSpan("product-price", `R$${element.preco.toFixed(2)}`)
+
+            infoDiv.appendChild(img)
+            infoDiv.appendChild(spanName)
+            infoDiv.appendChild(spanPrice)
+            li.appendChild(infoDiv)
+            ul.appendChild(li)
+            divContainer.appendChild(spanTitle)
+            divContainer.appendChild(ul)
+            container.appendChild(divContainer)
+        })
+    })
+}
+createProductsList()
