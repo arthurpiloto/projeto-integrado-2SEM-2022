@@ -323,12 +323,23 @@
 
         <div class="info-container">
             <div class="percentage-container">
-                <label for="percentage" class="product-input-name">Porcentagem</label>
+                <label for="percentage" class="info-title">Porcentagem</label>
                 <input type="number" name="percentage" id="percentage" step="0.01" min="0" class="product-percentage-input">
             </div>
 
-            <div class="original-price-container">
-                
+            <div class="price-container">
+                <span class="info-title">Preço Original:</span>
+                <div class="show-price" id="show-original-price"></div>
+            </div>
+
+            <div class="price-container">
+                <span class="info-title">Novo Preço:</span>
+                <div class="show-price" id="show-new-price"></div>
+            </div>
+
+            <div class="buttons-container">
+                <button type="button" class="button-form" id="button-save-add-product">Salvar</button>
+                <button type="button" class="button-form" id="button-exit-add-product">Sair</button>
             </div>
         </div>
     </main>

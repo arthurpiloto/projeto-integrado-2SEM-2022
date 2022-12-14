@@ -1,7 +1,7 @@
 /******* MAIN *******/
 main {
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     overflow: hidden;
 }
 
@@ -13,7 +13,7 @@ main .products-list-container {
 }
 
 main .products-list-container .product-list-title {
-    font-size: 2.4rem;
+    font-size: 3.2rem;
     font-weight: bold;
     color: var(--secondary-yellow-color);
 }
@@ -71,4 +71,61 @@ main .info-container {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: center;
+    gap: 2.4rem;
+}
+
+main .info-container .info-title {
+    color: var(--secondary-yellow-color);
+    font-size: 2.4rem;
+    font-weight: bold;
+}
+
+main .info-container .percentage-container {
+    display: flex;
+    flex-direction: column;
+}
+
+main .info-container .percentage-container .product-percentage-input {
+    border: none;
+    border-radius: 1rem;
+    width: 16rem;
+    height: 7.8rem;
+    font-size: 2.4rem;
+    text-align: center;
+}
+
+main .info-container .percentage-container .product-percentage-input:focus {
+    outline: var(--main-red-color) solid .1rem;
+}
+
+main .info-container .price-container {
+    display: flex;
+    flex-direction: column;
+}
+
+main .info-container .price-container .show-price {
+    width: 16rem;
+    height: 7.8rem;
+    background-color: var(--white-color);
+    border-radius: 1rem;
+}
+
+main .info-container .buttons-container {
+    display: flex;
+    gap: 3.2rem;
+}
+
+main .info-container .buttons-container .button-form {
+    cursor: pointer;
+    border: none;
+    border-radius: 1rem;
+    background: none;
+    background-color: var(--secondary-yellow-color);
+    padding: 1.6rem 2.4rem;
+    width: fit-content;
+    color: var(--white-color);
+    font-size: 2.4rem;
+    font-weight: bold;
+    text-transform: uppercase;
 }
