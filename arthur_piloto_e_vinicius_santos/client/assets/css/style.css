@@ -461,3 +461,31 @@ main #home .home-container .text-welcome-container .text-welcome .text-brown {
 }
 
 /* CONTACTS SECTION */
+
+.input-cellphone-container {
+    display: flex;
+    align-items: center;
+    gap: 0px 15px;
+}
+
+.input-message-text {
+    display: flex;
+    align-items: center;
+    gap: 0px 15px;
+}
+
+.input-cellphone {
+    padding: 5px;
+    height: 20px;
+    border: none;
+    width: 250px;
+    border-bottom: solid 1px var(--main-red-color);
+    font-size: 1.2rem;
+    background-color: var(--background-color);
+}
+
+.input-cellphone:focus {
+    border: none;
+    border-bottom: solid 1px var(--main-red-color);
+    outline: none;
+}
