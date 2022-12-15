@@ -63,7 +63,7 @@ const createMenuProductsList = async () => {
 createMenuProductsList()
 
 const clearProductsCards = () => {
-    const cards = document.querySelectorAll('.product-container')
+    const cards = document.querySelectorAll('.menu-product-container')
     cards.forEach((card) => card.remove())
 }
 
@@ -78,19 +78,19 @@ const createProductsByCategoryName = () => {
             clearProductsCards()
     
             
-            const divContainer = createDiv(`product-container`)
-            const spanTitle = createSpan(`subtitle`, selectValue)
-            const ul = createUl(`products-list`)
+            const divContainer = createDiv(`menu-product-container`)
+            const spanTitle = createSpan(`menu-subtitle`, selectValue)
+            const ul = createUl(`menu-products-list`)
             
             productsByCategory.products.forEach(async element => {
-                const container = document.querySelector(`.products-container`)
+                const container = document.querySelector(`.menu-products-container`)
     
                 
-                const li = createLi("item-container")
-                const infoDiv = createDiv("card-product")
-                const img = createImg("product-image", element.foto, element.descricao)
-                const spanName = createSpan("product-name", element.nome_produto)
-                const spanPrice = createSpan("product-price", `R$${element.preco.toFixed(2)}`)
+                const li = createLi("menu-item-container")
+                const infoDiv = createDiv("menu-card-product")
+                const img = createImg("menu-product-image", element.foto, element.descricao)
+                const spanName = createSpan("menu-product-name", element.nome_produto)
+                const spanPrice = createSpan("menu-product-price", `R$${element.preco.toFixed(2)}`)
     
                 infoDiv.appendChild(img)
                 infoDiv.appendChild(spanName)
