@@ -4,10 +4,10 @@
 import { createDiv, createImg, createUl, createLi, createSpan, createOption } from "./utils/createElements.js"
 import { getCategories } from "./fetch's/categoriesFetch.js"
 import { getProductsByCategoryName, getProductsByTypeName } from "./fetch's/productsFetch.js"
-import { getTypes } from "./fetch's/typesFetch.js"
+import { getProductTypes } from "./fetch's/productTypesFetch.js"
 
 const categoriesJSON = await getCategories()
-const typesJSON = await getTypes()
+const typesJSON = await getProductTypes()
 
 // Criando dinamicamete as opções que aparecem no select de categoria
 const createCategoriesOption = () => {

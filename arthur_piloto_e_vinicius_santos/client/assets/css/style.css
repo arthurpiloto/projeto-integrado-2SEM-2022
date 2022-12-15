@@ -173,7 +173,7 @@ main #home .home-container .text-welcome-container .text-welcome .text-brown {
     gap: 5px;
 }
 
-.select-category, .select-type {
+.select-category, .select-type, .select-message-type {
     appearance: none;
     border: .2rem solid var(--main-red-color);
     border-radius: 1rem;
