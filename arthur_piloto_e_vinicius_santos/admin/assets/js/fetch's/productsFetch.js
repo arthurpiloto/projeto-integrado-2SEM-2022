@@ -37,5 +37,6 @@ const postProduct = async (json) => {
 export {
     getProducts,
     getProductsByCategoryName,
+    getProductByName,
     postProduct
 }

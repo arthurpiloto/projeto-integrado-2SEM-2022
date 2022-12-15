@@ -47,6 +47,7 @@ main .products-list-container .product-list .product .product-radio {
     appearance: none;
     width: 1.15em;
     height: 1.15em;
+    border-radius: 50%;
     display: grid;
     place-content: center;
     border: .1rem solid var(--secondary-red-color);
@@ -57,6 +58,7 @@ main .products-list-container .product-list .product .product-radio::before {
     content: "";
     width: 0.65em;
     height: 0.65em;
+    border-radius: 50%;
     transform: scale(0);
     transition: 120ms transform ease-in-out;
     box-shadow: inset 1em 1em var(--secondary-red-color);
