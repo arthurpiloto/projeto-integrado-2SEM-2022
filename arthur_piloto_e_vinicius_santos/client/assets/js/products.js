@@ -32,22 +32,22 @@ const createTypesOption = () => {
 createTypesOption()
 
 // Criando dinamicamente os produtos
-const createProductsList = async () => {
-    const container = document.querySelector(`.products-container`)
+const createMenuProductsList = async () => {
+    const container = document.querySelector(`.menu-products-container`)
 
     categoriesJSON.categories.forEach(async element => {
-        const divContainer = createDiv(`product-container`)
-        const spanTitle = createSpan(`subtitle`, element.nome)
-        const ul = createUl(`products-list`)
+        const divContainer = createDiv(`menu-product-container`)
+        const spanTitle = createSpan(`menu-subtitle`, element.nome)
+        const ul = createUl(`menu-products-list`)
 
         const categoryJSON = await getProductsByCategoryName(element.nome)
 
         categoryJSON.products.forEach(element => {
-            const li = createLi("item-container")
-            const infoDiv = createDiv("card-product")
-            const img = createImg("product-image", element.foto, element.descricao)
-            const spanName = createSpan("product-name", element.nome_produto)
-            const spanPrice = createSpan("product-price", `R$${element.preco.toFixed(2)}`)
+            const li = createLi("menu-item-container")
+            const infoDiv = createDiv("menu-card-product")
+            const img = createImg("menu-product-image", element.foto, element.descricao)
+            const spanName = createSpan("menu-product-name", element.nome_produto)
+            const spanPrice = createSpan("menu-product-price", `R$${element.preco.toFixed(2)}`)
 
             infoDiv.appendChild(img)
             infoDiv.appendChild(spanName)
@@ -60,7 +60,7 @@ const createProductsList = async () => {
         })
     })
 }
-createProductsList()
+createMenuProductsList()
 
 const clearProductsCards = () => {
     const cards = document.querySelectorAll('.product-container')
