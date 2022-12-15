@@ -14,7 +14,15 @@ const getProductsByCategoryName = async (productCategory) => {
     return productsData
 }
 
+const getProductsByTypeName = async (productType) => {
+    const url = `http://localhost:3030/v1/products/type/${productType}`
+    const response = await fetch(url)
+    const productsData = await response.json()
+    return productsData
+}
+
 export {
     getProducts,
-    getProductsByCategoryName
+    getProductsByCategoryName,
+    getProductsByTypeName
 }

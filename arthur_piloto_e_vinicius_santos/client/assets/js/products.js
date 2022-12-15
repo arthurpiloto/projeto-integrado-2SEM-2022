@@ -3,7 +3,7 @@
 // Import dos fetch's e das funções da pasta utils 
 import { createDiv, createImg, createUl, createLi, createSpan, createOption } from "./utils/createElements.js"
 import { getCategories } from "./fetch's/categoriesFetch.js"
-import { getProductsByCategoryName } from "./fetch's/productsFetch.js"
+import { getProductsByCategoryName, getProductsByTypeName } from "./fetch's/productsFetch.js"
 import { getTypes } from "./fetch's/typesFetch.js"
 
 const categoriesJSON = await getCategories()
@@ -109,3 +109,46 @@ const createProductsByCategoryName = () => {
     })
 }
 createProductsByCategoryName()
+
+// Criando dinamicamente os produtos de acordo com o filtro de tipo
+const createProductsByTypeName = () => {
+    const select = document.querySelector('.select-type')
+    select.addEventListener('change', async () => {
+        const selectValue = document.querySelector('.select-type').value
+        const productsByType = await getProductsByTypeName(selectValue)
+
+        if(selectValue != 'Todos') {
+            clearProductsCards()
+    
+            
+            const divContainer = createDiv(`menu-product-container`)
+            const spanTitle = createSpan(`menu-subtitle`, selectValue)
+            const ul = createUl(`menu-products-list`)
+            
+            productsByType.products.forEach(async element => {
+                const container = document.querySelector(`.menu-products-container`)
+    
+                
+                const li = createLi("menu-item-container")
+                const infoDiv = createDiv("menu-card-product")
+                const img = createImg("menu-product-image", element.foto, element.descricao)
+                const spanName = createSpan("menu-product-name", element.nome_produto)
+                const spanPrice = createSpan("menu-product-price", `R$${element.preco.toFixed(2)}`)
+    
+                infoDiv.appendChild(img)
+                infoDiv.appendChild(spanName)
+                infoDiv.appendChild(spanPrice)
+                li.appendChild(infoDiv)
+                ul.appendChild(li)
+                divContainer.appendChild(spanTitle)
+                divContainer.appendChild(ul)
+                container.appendChild(divContainer)
+            })
+        } else {
+            clearProductsCards()
+            createProductsList()
+        }
+
+    })
+}
+createProductsByTypeName()
