@@ -1,0 +1,56 @@
+/******* MAIN *******/
+main {
+    align-items: center;
+    justify-content: center;
+    gap: 10rem;
+}
+
+main .inputs-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+}
+
+main .inputs-container .input-title {
+    font-size: 2.4rem;
+    font-weight: bold;
+    color: var(--secondary-yellow-color);
+}
+
+main .inputs-container .input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+main .inputs-container .input-container .input-camp {
+    border: none;
+    border-radius: 1rem;
+    padding: 1.6rem;
+    width: 30rem;
+}
+
+main .inputs-container .input-container .input-camp:focus {
+    outline: var(--main-red-color) solid .1rem;
+}
+
+main .buttons-container {
+    display: flex;
+    gap: 3.2rem;
+}
+
+main .buttons-container .button-form {
+    cursor: pointer;
+    border: none;
+    border-radius: 1rem;
+    background: none;
+    background-color: var(--secondary-yellow-color);
+    padding: 1.6rem 2.4rem;
+    width: fit-content;
+    color: var(--white-color);
+    font-size: 2.4rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
