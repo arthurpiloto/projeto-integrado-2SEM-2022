@@ -103,7 +103,7 @@ const createProductsByCategoryName = () => {
             })
         } else {
             clearProductsCards()
-            createProductsList()
+            createMenuProductsList()
         }
 
     })
@@ -146,7 +146,7 @@ const createProductsByTypeName = () => {
             })
         } else {
             clearProductsCards()
-            createProductsList()
+            createMenuProductsList()
         }
 
     })
