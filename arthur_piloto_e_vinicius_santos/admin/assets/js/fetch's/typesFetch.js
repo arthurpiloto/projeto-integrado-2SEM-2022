@@ -14,7 +14,21 @@ const getTypeIDByName = async (typeName) => {
     return typesData
 }
 
+const postType = async (json) => {
+    const url = `http://localhost:3030/v1/product-type`
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-type' : 'application/json'
+        },
+        body: JSON.stringify(json)
+    })
+    const typeData = await response.json()
+    return typeData
+}
+
 export {
     getTypes,
-    getTypeIDByName
+    getTypeIDByName,
+    postType
 }

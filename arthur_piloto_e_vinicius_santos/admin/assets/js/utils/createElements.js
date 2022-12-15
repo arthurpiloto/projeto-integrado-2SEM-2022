@@ -58,11 +58,11 @@ const createLabel = (className, textContent, htmlFor) => {
     return label
 }
 
-const createInput = (className, type, htmlName, value = htmlName, id = htmlName) => {
+const createInput = (className, type, htmlName, value, id = "") => {
     const input = document.createElement(`input`)
     input.classList.add(className)
     input.type = type
-    input.htmlName = htmlName
+    input.name = htmlName
     input.value = value
     input.id = id
 
