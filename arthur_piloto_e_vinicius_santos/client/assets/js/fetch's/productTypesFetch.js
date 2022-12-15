@@ -1,6 +1,6 @@
 'use strict'
 
-const getTypes = async () => {
+const getProductTypes = async () => {
     const url = `http://localhost:3030/v1/product-types`
     const response = await fetch(url)
     const typesData = await response.json()
@@ -8,5 +8,5 @@ const getTypes = async () => {
 }
 
 export {
-    getTypes
+    getProductTypes
 }
