@@ -27,7 +27,7 @@ messageAddButton.addEventListener('click', async () => {
     const userEmail = document.querySelector('.input-email').value
     const userPhone = document.querySelector('.input-cellphone').value
     const date = Date.now()
-    const currentDate = new Date(date).toISOString().slice(0, -1)
+    const currentDate = new Date(date).toISOString().split('T')[0]
     const userMessage = document.querySelector('.input-message').value
     const idTypeMessage = await getMessageTypeIdByName(selectValue)
     
